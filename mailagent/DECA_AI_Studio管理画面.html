@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMM App (Working Prototype)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 222.2 47.4% 11.2%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96.1%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+        /* Checkbox styling fix for Tailwind CDN */
+        input[type="checkbox"]:checked {
+            background-color: currentColor;
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        .tab-active { background-color: white !important; color: #111827 !important; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .tab-inactive { color: #4b5563; }
+        .tab-inactive:hover { color: #111827; }
+        .label-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 22px;
+            padding: 3px 9px;
+            background-color: #eceef2;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 16px;
+            color: #030213;
+        }
+        .prose h1 { font-size: 1.5em; font-weight: 600; margin-top: 1em; margin-bottom: 0.5em; color: #111827; }
+        .prose p { margin-bottom: 1em; line-height: 1.75; color: #374151; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
+        .prose li { margin-bottom: 0.5em; }
+        .prose strong { font-weight: 600; color: #111827; }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased overflow-hidden">
+    <div id="root">
+        <div class="flex h-screen bg-background">
+            <div class="w-20 h-screen bg-card border-r flex flex-col">
+                <div class="h-20 flex items-center justify-center border-b">
+                    <img class="w-[70%] h-auto" src="https://deca-custom-nmcm-web.vercel.app/deca-x-logo.svg">
+                </div>
+                <div class="flex-1 py-6 flex flex-col gap-4 items-center">
+                    <a class="w-14 h-14 rounded-lg hover:bg-accent flex items-center justify-center transition-colors bg-accent text-accent-foreground" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard w-5.5 h-5.5"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+                    </a>
+                    <a class="w-14 h-14 rounded-lg hover:bg-accent flex items-center justify-center transition-colors" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings w-5.5 h-5.5"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-hidden">
+                <div class="flex flex-col h-full">
+                    <div id="list-view" class="h-full overflow-auto">
+                        <div class="max-w-[1280px] mx-auto p-6 pb-12 space-y-6">
+                            <div class="flex justify-between items-center">
+                                <h1 class="text-2xl font-bold">配信管理</h1>
+                                <button onclick="toggleModal(true)" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus mr-2 h-4 w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                                    新規配信作成
+                                </button>
+                            </div>
+
+                            <div class="flex gap-4 items-center">
+                                <div class="relative flex-1 max-w-md">
+                                    <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors pl-10" placeholder="配信を検索..." value="">
+                                </div>
+                                <select class="flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors w-[200px]">
+                                    <option value="all">すべてのステータス</option>
+                                    <option value="active">アクティブ</option>
+                                    <option value="completed">完了</option>
+                                </select>
+                            </div>
+
+                            <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div onclick="toggleModal(true)" class="rounded-xl border bg-card text-card-foreground shadow h-[307px] cursor-pointer hover:bg-accent transition-colors">
+                                    <div class="flex flex-col items-center justify-center h-full p-6">
+                                        <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-8 h-8 text-primary"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                                        </div>
+                                        <h3 class="text-lg font-semibold mb-2">新規配信作成</h3>
+                                        <p class="text-sm text-muted-foreground text-center">配信設定を選択してキャンペーンを作成する</p>
+                                    </div>
+                                </div>
+
+                                <div data-open-detail class="border text-card-foreground shadow h-[307px] cursor-pointer hover:bg-accent transition-colors bg-white border-[rgba(0,0,0,0.1)] rounded-[14px]">
+                                    <div class="p-[25px] flex flex-col gap-[30px] h-full">
+                                        <div class="flex justify-between items-start">
+                                            <h3 class="text-[16px] font-normal text-neutral-950 leading-[16px] line-clamp-1">20260129メルマガ配信_sumple</h3>
+                                            <div class="flex items-start gap-2">
+                                                <div class="flex flex-col gap-[8px] items-end">
+                                                    <div class="bg-gray-500 rounded-[8px] px-[9px] py-[3px]"><span class="text-[12px] text-white leading-[16px]">完了</span></div>
+                                                    <div class="bg-[#eceef2] rounded-[8px] px-[9px] py-[3px] flex items-center gap-[4px]">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail size-[12px] text-[#030213]"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                        <span class="text-[12px] text-[#030213] leading-[16px]">Mail</span>
+                                                    </div>
+                                                </div>
+                                                <button onclick="event.stopPropagation()" class="hover:bg-accent rounded-md p-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-[16px] flex-1 min-h-0">
+                                            <div class="flex justify-between items-center">
+                                                <div class="flex items-center gap-[8px]">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar size-[14px] text-[#717182]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                                    <span class="text-[14px] text-[#717182] leading-[20px]">2026-01-29</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-[14px] text-neutral-950 leading-[20px] whitespace-pre-wrap line-clamp-3">testtesttesttesttest</p>
+                                            <div class="flex items-center gap-[8px] flex-wrap">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag size-[14px] text-[#717182]"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="detail-view" class="h-full overflow-auto hidden bg-gray-50">
+                        <div class="max-w-[1280px] mx-auto p-6 pb-12 space-y-6">
+                            <div class="flex items-center justify-between h-9">
+                                <div class="flex items-center gap-3">
+                                    <button onclick="showListView()" class="inline-flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                    </button>
+                                    <div class="flex items-center gap-3">
+                                        <h1 class="text-base font-normal text-gray-900">春季キャンペーン分析 #003</h1>
+                                        <div class="inline-flex items-center rounded-full border border-transparent px-2.5 py-0.5 text-xs font-semibold bg-[#030213] text-white">
+                                            完了
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button class="inline-flex items-center justify-center h-8 px-3 text-xs font-medium text-red-600 border border-red-200 rounded-md hover:bg-red-50 hover:text-red-700 gap-2 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                                        削除
+                                    </button>
+                                    <button class="inline-flex items-center justify-center h-8 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-md hover:bg-gray-100 gap-2 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                        ダウンロード
+                                    </button>
+                                    <button class="inline-flex items-center justify-center h-9 px-4 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 shadow gap-2 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path></svg>
+                                        再実行
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border border-green-200 bg-green-50 p-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-white text-xs font-bold">✓</div>
+                                    <div>
+                                        <p class="font-medium text-green-900">ワークフロー実行完了</p>
+                                        <p class="text-sm text-green-700">すべてのワークフローステップが正常に完了しました</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm text-gray-900">
+                                <div class="p-6 border-b flex items-center justify-between">
+                                    <h3 class="font-semibold flex items-center gap-2 text-base">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                        配信情報
+                                    </h3>
+                                </div>
+                                <div class="p-6 pt-0 space-y-6 mt-6">
+                                    <div class="grid grid-cols-4 gap-6">
+                                        <div class="space-y-2">
+                                            <p class="text-sm text-gray-500">ステータス</p>
+                                            <div class="text-base"><span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-[#030213] text-white">完了</span></div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <p class="text-sm text-gray-500">リリース日</p>
+                                            <div class="text-base">2026-02-12</div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <p class="text-sm text-gray-500">作成日</p>
+                                            <div class="text-base">February 2, 2026 at 11:50 AM</div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <p class="text-sm text-gray-500">配信方法</p>
+                                            <div class="text-base flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                Mail
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full overflow-x-auto">
+                                        <div class="flex items-center gap-[6px] py-2">
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                            <div class="size-[16px] rounded-[6px] bg-[#05df72]"></div>
+                                        </div>
+                                    </div>
+                                    <div class="border-t"></div>
+
+                                    <div class="space-y-3">
+                                        <button class="flex items-center gap-2 w-full text-left hover:opacity-80 transition-opacity">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                            <h3 class="text-base font-normal flex-1">リサーチ内容入力</h3>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500"><path d="m6 9 6 6 6-6"></path></svg>
+                                        </button>
+                                    </div>
+                                    <div class="border-t"></div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>
+                                            <h3 class="text-base font-normal">追加</h3>
+                                        </div>
+                                    </div>
+                                    <div class="border-t"></div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>
+                                            <h3 class="text-base font-normal">対象ページURL</h3>
+                                        </div>
+                                        <div class="space-y-2 pl-7">
+                                            <a href="#" class="block text-[#030213] underline hover:opacity-80 break-all text-sm">https://example.com/tour/tourDetail?id=BDLYB3ATS001</a>
+                                            <a href="#" class="block text-[#030213] underline hover:opacity-80 break-all text-sm">https://example.com/tour/tourDetail?id=BDLYJ6AJM005</a>
+                                            <a href="#" class="block text-[#030213] underline hover:opacity-80 break-all text-sm">https://example.com/campaign/travel_festa/</a>
+                                        </div>
+                                    </div>
+                                    <div class="border-t"></div>
+                                    <div class="space-y-3">
+                                        <h3 class="text-base font-normal">セグメント数: 4</h3>
+                                    </div>
+                                    <div class="border-t"></div>
+                                    <div class="space-y-3">
+                                        <h3 class="text-base font-normal">追加テキスト</h3>
+                                    </div>
+                                    <div class="border-t"></div>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
+                                            <h3 class="text-base font-semibold">Dynamic Properties</h3>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-6 pl-7">
+                                            <div class="space-y-2"><p class="text-sm text-gray-500">Reference Image Urls1</p><span class="text-gray-400">-</span></div>
+                                            <div class="space-y-2"><p class="text-sm text-gray-500">Reference Image Urls2</p><span class="text-gray-400">-</span></div>
+                                            <div class="space-y-2"><p class="text-sm text-gray-500">Reference Image Urls3</p><span class="text-gray-400">-</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm">
+                                <div class="p-6 border-b flex flex-col space-y-1.5">
+                                    <h3 class="font-semibold leading-none tracking-tight flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                    </h3>
+                                </div>
+                                <div class="p-6 pt-0 mt-6">
+                                    <div class="bg-gray-50 border rounded-lg p-4">
+                                        <div class="bg-white border rounded p-4">
+                                            <div class="prose prose-sm max-w-none">
+                                                <h1>自社サービス同定（候補と根拠）</h1>
+                                                <ul>
+                                                    <li><strong>Premium Heritage（プレミアム・ヘリテージ）</strong> - 当社の高級志向ツアーブランド。【分析対象ページ1】のタイトルに「<strong>添乗員同行・ハイクラス</strong>」と明記されており、創業100年以上のクラシックホテル宿泊など特別感ある企画が特徴です。</li>
+                                                    <li><strong>Seasonal March（シーズナル・マーチ）</strong> - 当社の人気企画ツアーブランド。【分析対象ページ2】のタイトルに「<strong>添乗員同行</strong>」とあり、桜名所巡りなど季節イベントに焦点を当てた大人数向け企画と推測されます（inference=true, confidence=80）。</li>
+                                                    <li><strong>当社の国内エスコートツアー（募集型企画旅行）全般</strong> - 上記ブランドを含む、当社が提供する添乗員同行型の国内パッケージツアー全般を指します。これらは拠点駅発着で交通・宿泊・観光がセットになった旅行商品です。</li>
+                                                    <li><strong>トラベルフェスタ（旅行イベント）</strong> - 【分析対象ページ3】にある当社主催の旅行イベント。参加者に各地の観光情報を提供し、自社ツアーへの送客を図るプロモーション施策です。</li>
+                                                </ul>
+                                                <p><strong>不足している情報（サービス理解に必要な追加項目）</strong></p>
+                                                <ul>
+                                                    <li>サービスの正式ブランド定義や提供企業名の明確化</li>
+                                                    <li>想定顧客層（BtoC、高齢富裕層夫婦、シニア団体など）</li>
+                                                    <li>主な機能・特徴一覧（例：添乗員同行、主要観光地の入場券込み等）</li>
+                                                    <li>利用条件・料金体系（例：プレミアムツアーの価格帯）</li>
+                                                    <li>差別化ポイント（競合他社ツアーとの違い：クラシックホテル宿泊、デラックスバス利用など）</li>
+                                                    <li>実績や信頼性（催行確定率、リピーター率などのエビデンス）</li>
+                                                </ul>
+                                                
+                                                <h1>自社サービスの価値整理</h1>
+                                                <p>自社サービスは、<strong>機能的価値</strong>・<strong>体験価値</strong>・<strong>情緒的価値</strong>の3層で以下のような魅力を持っています。</p>
+                                                
+                                                <h2>機能的価値（何ができるのか）</h2>
+                                                <ul>
+                                                    <li><strong>ワンストップ旅行手配:</strong> 交通（新幹線・貸切バス等）、宿泊、観光入場券や食事まで旅行に必要なものが一括手配されています。</li>
+                                                    <li><strong>添乗員同行による安心サポート:</strong> 主要駅の集合から旅程終了まで経験豊富な添乗員が同行し、スケジュール管理や緊急対応を行います。</li>
+                                                    <li><strong>充実の観光内容:</strong> 世界遺産や国宝など主要スポットの見学（現地ガイド案内付き）や、老舗ホテルでの食事が組み込まれています。</li>
+                                                    <li><strong>快適な移動手段:</strong> 化粧室付きのデラックス観光バスや往復の新幹線指定席など、移動ストレスを軽減する手段が用意されています。</li>
+                                                    <li><strong>料金に含まれるサービス:</strong> 宿泊費・交通費・食事代・入場料・税金などが旅行代金に含まれ、追加料金の心配が少ないパッケージです。</li>
+                                                </ul>
+
+                                                <h2>体験価値（利用者の行動・負担はどう変わるか）</h2>
+                                                <ul>
+                                                    <li><strong>計画負担の軽減:</strong> 複雑な旅程立案や宿・交通の予約調整から解放されます。利用者は日程に合わせ申込むだけで済みます。</li>
+                                                    <li><strong>効率的な観光:</strong> 団体貸切バスによる効率的なルート設定で、短期間で複数の見所を巡れます。</li>
+                                                    <li><strong>グループでの安心感:</strong> ツアー参加者同士で行動することで一人旅の不安が軽減します。</li>
+                                                </ul>
+
+                                                <h2>情緒的価値（利用者の感じ方）</h2>
+                                                <ul>
+                                                    <li><strong>特別感・贅沢感:</strong> 歴史あるクラシックホテルに宿泊する体験は、利用者に伝統と格式に触れる誇らしさを与えます。</li>
+                                                    <li><strong>安心感・信頼感:</strong> 地元大手による企画・添乗員同行という体制が、旅慣れない人にも心理的安心をもたらします。</li>
+                                                    <li><strong>満足感と充実感:</strong> ツアー終了後、「これだけ盛りだくさんの体験ができた」という達成感・充実感が得られます。</li>
+                                                </ul>
+
+                                                <h1>市場・トレンド・競合の文脈化</h1>
+                                                <p>近年、国内旅行市場では**「高付加価値志向のシニア旅行」**が一つのトレンドです。団塊の世代を中心に時間と経済的余裕のあるシニア層が増え、質の高いサービスや特別な体験に対して支出を惜しまない傾向があります。</p>
+                                                <p>一方、**「お得＆手軽な国内ツアー」**への需要も根強く、市場全体ではポイント活用や直前割引など価格訴求型のツアーも人気です。当社の「Seasonal March」シリーズは、桜シーズン限定など**季節イベント×リーズナブル設定**でこの層にリーチしています。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm text-gray-900">
+                                <div class="p-6 pt-0 mt-6">
+                                    <div class="inline-flex bg-[#ececf0] rounded-[14px] p-[3px] gap-[3px] mb-4">
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all tab-active tab-btn" onclick="openTab(event, 'seg-1')">プレミアム旅行志向の上得意層</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all tab-inactive tab-btn" onclick="openTab(event, 'seg-2')">ポイント&便利志向のマルチユーザー</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all tab-inactive tab-btn" onclick="openTab(event, 'seg-3')">休眠・一過性ユーザー層</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] transition-all tab-inactive tab-btn" onclick="openTab(event, 'seg-4')">その他</button>
+                                    </div>
+
+                                    <div class="relative w-full bg-white border border-[rgba(0,0,0,0.1)] rounded-[14px]">
+                                        <div class="absolute h-[20px] left-[25px] top-[25px] flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-neutral-950"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                            <p class="text-[16px] leading-[16px] text-neutral-950 font-semibold">ターゲットセグメント情報</p>
+                                        </div>
+
+                                        <div id="seg-1" class="pt-[75px] px-[24px] pb-[24px] tab-content">
+                                            <div class="flex flex-col gap-[8px]">
+                                                <div class="flex flex-col gap-[5px]">
+                                                    <p class="text-[14px] leading-[20px] text-[#717182]">セグメント 名</p>
+                                                    <div><p class="text-[16px] leading-[24px] text-neutral-950">プレミアム旅行志向の上得意層</p></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col gap-[8px] mt-[40px]">
+                                                <div class="flex flex-col gap-[5px]">
+                                                    <p class="text-[14px] leading-[20px] text-[#717182]">推定リーチ</p>
+                                                    <div><p class="text-[16px] leading-[24px] text-neutral-950">70代夫婦など富裕なリピーター。拠点都市発着の高級ツアーに継続参加し、自他ともに旅通と認める存在。旅の質にこだわり、伝統や格式を重んじる。当社サービスへの信頼が厚く、新企画には真っ先に関心を示す。</p></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col gap-[8px] mt-[40px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">メインラベル</p></div>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <div class="label-badge">価値の高い忠実な顧客</div>
+                                                    <div class="label-badge">パワーユーザー</div>
+                                                    <div class="label-badge">トップポイント獲得者</div>
+                                                    <div class="label-badge">地域チャンピオン</div>
+                                                    <div class="label-badge">高バランス (95 パーセンタイル)</div>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col gap-[8px] mt-[40px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">サブラベル</p></div>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <div class="label-badge">クレジットカードの主利用者</div>
+                                                    <div class="label-badge">ニュースレターをオプトインしました</div>
+                                                    <div class="label-badge">2014 年以前のレガシー メンバー</div>
+                                                    <div class="label-badge">高ポイント獲得者</div>
+                                                    <div class="label-badge">Top Prefecture - 主要エリア</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="seg-2" class="pt-[75px] px-[24px] pb-[24px] tab-content hidden"></div>
+                                        <div id="seg-3" class="pt-[75px] px-[24px] pb-[24px] tab-content hidden"></div>
+                                        <div id="seg-4" class="pt-[75px] px-[24px] pb-[24px] tab-content hidden"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm text-gray-900">
+                                <div class="p-6 pt-0 mt-6">
+                                    <div class="inline-flex bg-[#ececf0] rounded-[14px] p-[3px] gap-[3px] mb-4 overflow-x-auto max-w-full">
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] bg-white text-gray-900 shadow-sm whitespace-nowrap">高橋 一夫</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">高橋 由美</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">佐藤 直樹</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">山口 美智子</button>
+                                    </div>
+
+                                    <div class="relative w-full bg-white border border-[rgba(0,0,0,0.1)] rounded-[14px]">
+                                        <div class="absolute h-[20px] left-[25px] top-[25px] flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-circle-user"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path></svg>
+                                            <p class="text-[16px] leading-[16px] text-neutral-950 font-semibold">ペルソナ情報</p>
+                                        </div>
+                                        
+                                        <div class="pt-[75px] px-[24px] pb-[24px] space-y-[16px]">
+                                            <div class="grid grid-cols-3 gap-[16px]">
+                                                <div class="flex flex-col gap-[5px]"><p class="text-[14px] leading-[20px] text-[#717182]">ペルソナ名</p><div><p class="text-[16px] leading-[24px] text-neutral-950">高橋 一夫</p></div></div>
+                                                <div class="flex flex-col gap-[5px]"><p class="text-[14px] leading-[20px] text-[#717182]">年齢</p><div><p class="text-[16px] leading-[24px] text-neutral-950">73</p></div></div>
+                                                <div class="flex flex-col gap-[5px]"><p class="text-[14px] leading-[20px] text-[#717182]">ツアーフィット</p><div><p class="text-[16px] leading-[24px] text-neutral-950">9.5/10</p></div></div>
+                                            </div>
+
+                                            <div class="flex flex-col gap-[8px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">セグメント 名</p></div>
+                                                <div class="min-h-[44px] p-[12px] bg-[#f9fafb] rounded-[8px] border border-[rgba(0,0,0,0.05)]"><p class="text-[14px] leading-[22px] text-neutral-950">プレミアム旅行志向の上得意層</p></div>
+                                            </div>
+
+                                            <div class="flex flex-col gap-[8px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">ペルソナ スナップショット</p></div>
+                                                <div class="min-h-[44px] p-[12px] bg-[#f9fafb] rounded-[8px] border border-[rgba(0,0,0,0.05)]">
+                                                    <p class="text-[14px] leading-[22px] text-neutral-950">70代の富裕なリピーターで、拠点都市発着の高級ツアーを長年利用してきた上得意客。自他ともに認める「旅通」であり、クラシックホテルや老舗旅館の良し悪しにも一家言を持つ。旅行会社への信頼は厚く、新企画が出れば真っ先に関心を示す。</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex flex-col gap-[8px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">メッセージング フック</p></div>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-start gap-2 p-[10px] bg-[#f0f9ff] rounded-[8px] border border-[#bae6fd]">
+                                                        <span class="text-[12px] font-medium text-[#0284c7] mt-[2px]">•</span>
+                                                        <p class="text-[13px] leading-[20px] text-[#0c4a6e] flex-1">【件名】格式ある“ヘリテージホテル”に3連泊︰贅を尽くす4日間</p>
+                                                    </div>
+                                                    <div class="flex items-start gap-2 p-[10px] bg-[#f0f9ff] rounded-[8px] border border-[#bae6fd]">
+                                                        <span class="text-[12px] font-medium text-[#0284c7] mt-[2px]">•</span>
+                                                        <p class="text-[13px] leading-[20px] text-[#0c4a6e] flex-1">【冒頭】&lt;会員名&gt;様、特別な旅にふさわしい舞台が整いました。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex flex-col gap-[8px]">
+                                                <div class="h-[20px]"><p class="text-[14px] leading-[20px] text-[#717182]">主な異議</p></div>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-start gap-2 p-[10px] bg-[#fef2f2] rounded-[8px] border border-[#fecaca]">
+                                                        <span class="text-[12px] font-medium text-[#dc2626] mt-[2px]">⚠</span>
+                                                        <p class="text-[13px] leading-[20px] text-[#7f1d1d] flex-1">「行ったことのある場所ばかりでは？新鮮味が欲しい」</p>
+                                                    </div>
+                                                    <div class="flex items-start gap-2 p-[10px] bg-[#fef2f2] rounded-[8px] border border-[#fecaca]">
+                                                        <span class="text-[12px] font-medium text-[#dc2626] mt-[2px]">⚠</span>
+                                                        <p class="text-[13px] leading-[20px] text-[#7f1d1d] flex-1">「価格に見合う特別な体験が本当にできるのか？」</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm text-gray-900">
+                                <div class="p-6 pt-0 mt-6">
+                                    <div class="inline-flex bg-[#ececf0] rounded-[14px] p-[3px] gap-[3px] mb-4 overflow-x-auto max-w-full">
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] bg-white text-gray-900 shadow-sm whitespace-nowrap">プレミアム旅行志向の上得意層.html</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">ポイント&便利志向のマルチユーザー.html</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">休眠・一過性ユーザー層.html</button>
+                                    </div>
+
+                                    <div class="bg-gray-50 border rounded-lg p-4 space-y-4">
+                                        <div class="space-y-3 pb-4 border-b">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                                    <h4 class="font-semibold text-sm text-gray-500">メール件名</h4>
+                                                </div>
+                                                <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm bg-white hover:bg-gray-100 border transition-colors">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                                                    件名をコピー
+                                                </button>
+                                            </div>
+                                            <p class="text-base font-medium text-gray-900 pl-7">【催行確定】主要駅発着｜名門クラシックホテルに泊まる 世界遺産の旅 3泊4日（3/23発）</p>
+                                        </div>
+
+                                        <div>
+                                            <h4 class="font-semibold text-sm text-gray-500 mb-3">メール本文</h4>
+                                            <div class="relative">
+                                                <div class="bg-[#ececf0] rounded-t-[14px] p-[3px] grid grid-cols-2">
+                                                    <button class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[14px] text-sm font-normal transition-all bg-white text-gray-900">プレビュー</button>
+                                                    <button class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[14px] text-sm font-normal transition-all text-gray-600 hover:text-gray-900">HTMLコード</button>
+                                                </div>
+                                                <div class="relative">
+                                                    <div class="bg-gray-50 p-4 rounded-b-[10px] border border-t-0">
+                                                        <div class="bg-white border rounded max-h-[500px] overflow-y-auto p-4 font-sans">
+                                                            
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f5f5;">
+                                                                <tbody><tr><td align="center" style="padding:0;">
+                                                                    <table cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; margin:0 auto; background-color:#ffffff;">
+                                                                        <tr><td align="center"><div style="width:100%; height:200px; background-color:#e5e7eb; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-weight:bold;">[メイン画像: ホテル花御殿外観]</div></td></tr>
+                                                                        <tr><td align="left" style="padding:24px 20px 0 20px;"><h1 style="font-size:24px; color:#2c2c2c; font-weight:bold; margin:0;">名門クラシックホテルに泊まる上質の旅 — 世界遺産と国宝をめぐる3泊4日</h1></td></tr>
+                                                                        <tr><td align="left" style="padding:12px 20px 0 20px;"><p style="font-size:16px; color:#555555; margin:0;">3つの名門ホテルに泊まり、現地ガイドと世界遺産・国宝をじっくり見学。</p></td></tr>
+                                                                        <tr><td align="center" style="padding:24px 20px;"><a href="#" style="display:inline-block; width:90%; background-color:#c8102e; color:#ffffff; text-decoration:none; font-weight:bold; padding:18px 24px; border-radius:6px;">空席・お部屋タイプを確認する</a></td></tr>
+                                                                    </table>
+                                                                </td></tr></tbody>
+                                                            </table>
+
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f5f5;">
+                                                                <tbody><tr><td align="center">
+                                                                    <table cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; margin:0 auto; background-color:#ffffff;">
+                                                                        <tr><td align="left" style="padding:40px 20px 10px 20px; border-top:1px solid #e0e0e0;"><h2 style="font-size:22px; color:#2c2c2c; font-weight:bold; margin:0;">拠点駅発着／添乗員同行｜3泊4日</h2></td></tr>
+                                                                        <tr><td align="center" style="padding:0 20px;"><div style="width:100%; height:180px; background-color:#e5e7eb; display:flex; align-items:center; justify-content:center; color:#9ca3af;">[画像: ホテル外観]</div></td></tr>
+                                                                        <tr><td align="left" style="padding:20px 20px;"><p style="font-size:16px; color:#333; margin:0;">移動は革張りシート・化粧室付きデラックスバス。添乗員同行で安心。</p></td></tr>
+                                                                        <tr><td align="left" style="padding:0 20px;">
+                                                                            <p style="margin:0 0 8px 0; font-size:16px;"><strong style="color:#c8102e;">◆</strong> 世界遺産を現地ガイドとともに巡ります</p>
+                                                                            <p style="margin:0 0 8px 0; font-size:16px;"><strong style="color:#c8102e;">◆</strong> ホテルでの洋食コースと館内見学ツアー付き</p>
+                                                                        </td></tr>
+                                                                        <tr><td align="left" style="padding:20px 20px;">
+                                                                            <div style="background-color:#f9f9f9; padding:12px; border-radius:4px;">
+                                                                                <p style="margin:0 0 4px 0; font-size:16px;"><strong>出発日：</strong>2026/3/23(月)</p>
+                                                                                <p style="margin:0; font-size:16px;"><strong>旅行代金：</strong>298,000円(税込)</p>
+                                                                            </div>
+                                                                        </td></tr>
+                                                                        <tr><td align="center" style="padding:24px 20px;"><a href="#" style="display:inline-block; width:90%; background-color:#c8102e; color:#ffffff; text-decoration:none; font-weight:bold; padding:18px 24px; border-radius:6px;">日程表と見どころを確認する</a></td></tr>
+                                                                    </table>
+                                                                </td></tr></tbody>
+                                                            </table>
+
+                                                            <table width="100%" style="background-color:#f5f5f5;"><tbody><tr><td align="center">
+                                                                <table style="max-width:600px; width:100%; background-color:#2c2c2c; padding:20px;">
+                                                                    <tr><td align="center" style="color:#fff; font-size:14px;">
+                                                                        <p>Premium Travel Services Co., Ltd.</p>
+                                                                        <p>Customer Support: 000-1234-5678</p>
+                                                                    </td></tr>
+                                                                </table>
+                                                            </td></tr></tbody></table>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl border bg-white shadow-sm text-gray-900">
+                                 <div class="p-6 pt-0 mt-6">
+                                    <div class="inline-flex bg-[#ececf0] rounded-[14px] p-[3px] gap-[3px] mb-4 overflow-x-auto max-w-full">
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] bg-white text-gray-900 shadow-sm whitespace-nowrap">プレミアム旅行志向の上得意層.csv</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">ポイント&便利志向のマルチユーザー.csv</button>
+                                        <button class="px-3 py-1.5 text-sm font-normal rounded-[14px] text-gray-600 hover:text-gray-900 whitespace-nowrap">休眠・一過性ユーザー層.csv</button>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 border rounded-lg p-4 space-y-4">
+                                        <div class="space-y-3">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                                <h4 class="font-semibold text-lg">プレミアム旅行志向の上得意層.csv</h4>
+                                            </div>
+                                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                                <div><p class="text-xs text-gray-500 mb-1">ファイルサイズ</p><p class="font-medium">998.6 KB</p></div>
+                                                <div><p class="text-xs text-gray-500 mb-1">MIMEタイプ</p><p class="font-medium">text/csv</p></div>
+                                                <div><p class="text-xs text-gray-500 mb-1">メンバー数</p><p class="font-medium">63,911</p></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2 pt-2 border-t">
+                                            <button class="flex items-center justify-center font-medium border bg-white shadow-sm hover:bg-gray-100 h-8 rounded-md px-3 text-xs gap-2 transition-colors">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>ダウンロード
+                                            </button>
+                                            <button class="flex items-center justify-center font-medium border bg-white shadow-sm hover:bg-gray-100 h-8 rounded-md px-3 text-xs gap-2 transition-colors">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>プレビューを表示
+                                            </button>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="fixed inset-0 z-[55] bg-black/50 hidden" role="button" tabindex="0" onclick="toggleModal(false)"></div>
+    
+    <div id="modal-drawer" class="fixed inset-y-0 right-0 left-auto z-[60] flex items-stretch m-0 p-0 transition-transform duration-300 translate-x-full">
+        <div class="w-full max-w-4xl bg-background shadow-lg h-full flex flex-col overflow-hidden m-0 p-0 !w-[40vw] !max-w-[2304px]">
+            <div class="flex flex-col space-y-2 p-6 border-b flex-shrink-0 relative">
+                <h2 class="text-lg font-semibold">新規配信作成</h2>
+                <p class="text-sm text-muted-foreground">配信の詳細を入力して新規配信を作成します</p>
+                <button onclick="toggleModal(false)" class="absolute right-4 top-4 hover:bg-accent rounded-md p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto max-h-[80vh]">
+                <div class="mb-6 space-y-2">
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="workflow" _tolgee="true">ワークフロー<span class="text-xs text-neutral-500 ml-2" _tolgee="true">（オプション - 選択されない場合はデフォルトを使用）</span></label>
+                    <select class="flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-full" id="workflow" _tolgee="true">
+                        <option value="">メール（最新） (デフォルト)</option>
+                        <option value="6965b00f17938034069305e5">LINE リッチバナー</option>
+                        <option value="691c2718a454dcfcbdaea79e">LINE Flex Message（最新）</option>
+                    </select>
+                </div>
+                
+                <form id="create-form" class="space-y-6" onsubmit="handleCreate(event)">
+                    <div class="rounded-xl border bg-card text-card-foreground shadow p-6">
+                        <h3 class="font-semibold mb-6">配信基本情報</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">配信名(管理用) <span class="text-red-500">*</span></label>
+                                    <input required type="text" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="name" placeholder="配信名を入力" value="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="releaseDate">リリース日 <span class="text-red-500">*</span></label>
+                                    <input required type="date" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="releaseDate" placeholder="リリース日を選択" value="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="distributionMethod">配布方法 <span class="text-red-500">*</span></label>
+                                    <select required class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="distributionMethod">
+                                        <option value="" disabled selected>選択してください</option>
+                                        <option value="mail">Mail</option>
+                                        <option value="line">LINE</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl border bg-card text-card-foreground shadow p-6">
+                        <h3 class="font-semibold mb-6">配信詳細</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="researchDetail">リサーチ内容入力 <span class="text-red-500">*</span></label>
+                                    <textarea required class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="researchDetail" placeholder="北海道旅行のメルマガを送りたいなど" rows="3"></textarea>
+                                    <div class="flex justify-between items-center">
+                                        <div></div>
+                                        <p class="text-sm text-muted-foreground">0/500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="referenceUrls">対象ページURL </label>
+                                    <div class="space-y-2">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs w-full sm:w-auto" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus mr-2 h-4 w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                                            対象ページURL
+                                        </button>
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">複数のURLは分けて入力してください</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="referenceImageUrls">対象画像URL（リッチバナー） </label>
+                                    <div class="space-y-2">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs w-full sm:w-auto" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus mr-2 h-4 w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                                            対象画像URL
+                                        </button>
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">複数のURLは分けて入力してください</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="campaignThemes">追加 </label>
+                                    <div>
+                                        <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="campaignThemes" placeholder="テーマを追加（Enterで追加）" value="">
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">キャンペーンのテーマを表すキーワード</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl border bg-card text-card-foreground shadow p-6">
+                        <h3 class="font-semibold mb-6">詳細オプション</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="numberOfSegments">セグメント数 </label>
+                                    <input type="number" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" id="numberOfSegments" placeholder="セグメント数" step="any" value="5">
+                                    <p class="text-sm text-muted-foreground">セグメントの数</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="additionalText">追加テキスト </label>
+                                    <div class="border border-input rounded-md focus-within:ring-1 focus-within:ring-ring focus-within:outline-none transition-colors">
+                                        <div class="border-b p-2 flex gap-1 bg-muted/50 items-center justify-between">
+                                            <div class="flex gap-1">
+                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md text-xs h-8 w-8 p-0" type="button" title="Bold"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bold h-4 w-4"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"></path></svg></button>
+                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md text-xs h-8 w-8 p-0" type="button" title="Italic"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-italic h-4 w-4"><line x1="19" x2="10" y1="4" y2="4"></line><line x1="14" x2="5" y1="20" y2="20"></line><line x1="15" x2="9" y1="4" y2="20"></line></svg></button>
+                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md text-xs h-8 w-8 p-0" type="button" title="Bullet List"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list h-4 w-4"><path d="M3 12h.01"></path><path d="M3 18h.01"></path><path d="M3 6h.01"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M8 6h13"></path></svg></button>
+                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md text-xs h-8 w-8 p-0" type="button" title="Link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2 h-4 w-4"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg></button>
+                                            </div>
+                                            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md text-xs h-8 px-2" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-4 w-4 mr-1"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                Preview
+                                            </button>
+                                        </div>
+                                        <textarea class="flex min-h-[80px] w-full rounded-md border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 outline-none shadow-none" id="additionalText" placeholder="注意事項など必ず入れたい文言を追加" rows="4"></textarea>
+                                    </div>
+                                    <p class="text-sm text-muted-foreground">HTML書式に対応</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="relative inline-flex items-center">
+                                            <input type="checkbox" class="sr-only peer" id="highEndProduct">
+                                            <span class="h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer-checked:bg-primary peer-checked:text-primary-foreground flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="hidden peer-checked:block text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            </span>
+                                        </div>
+                                        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer" for="highEndProduct">高額商材</label>
+                                    </div>
+                                    <p class="text-sm text-muted-foreground ml-6">チェックでSTEP配信を出力します(現在未対応）</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3 pt-4">
+                        <button onclick="toggleModal(false)" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2" type="button" _tolgee="true">キャンセル</button>
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2" type="submit">作成</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Control
+        function toggleModal(show) {
+            const overlay = document.getElementById('modal-overlay');
+            const drawer = document.getElementById('modal-drawer');
+            if (show) {
+                overlay.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function showDetailView() {
+            document.getElementById('list-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.remove('hidden');
+            toggleModal(false);
+        }
+
+        function showListView() {
+            document.getElementById('detail-view').classList.add('hidden');
+            document.getElementById('list-view').classList.remove('hidden');
+        }
+
+        function initializeDetailCardEvents() {
+            const cards = document.querySelectorAll('[data-open-detail]');
+            cards.forEach((card) => {
+                card.onclick = showDetailView;
+            });
+        }
+
+        function openTab(evt, tabId) {
+            const container = evt.currentTarget.parentElement;
+            const buttons = container.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i += 1) {
+                buttons[i].className = buttons[i].className.replace(' tab-active', ' tab-inactive');
+                buttons[i].classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+                buttons[i].classList.add('text-gray-600');
+            }
+
+            evt.currentTarget.className = evt.currentTarget.className.replace(' tab-inactive', ' tab-active');
+            evt.currentTarget.classList.remove('text-gray-600');
+            evt.currentTarget.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+
+            const contentGroup = document.getElementById(tabId).parentElement;
+            const contents = contentGroup.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i += 1) {
+                contents[i].classList.add('hidden');
+            }
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        // Handle Create
+        function handleCreate(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get Input Values (Required fields)
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('releaseDate').value;
+            const method = document.getElementById('distributionMethod').value;
+            const detail = document.getElementById('researchDetail').value;
+
+            // Basic validation
+            if (!name || !date || !method || !detail) {
+                alert("必須項目を入力してください");
+                return;
+            }
+
+            // Configure Icon based on Method
+            let methodIconHTML = '';
+            let methodLabel = '';
+            
+            if (method === 'mail') {
+                methodLabel = 'Mail';
+                methodIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail size-[12px] text-[#030213]"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`;
+            } else {
+                methodLabel = 'LINE';
+                methodIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle size-[12px] text-[#030213]"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>`;
+            }
+
+            // Create New Card HTML
+            const newCardHTML = `
+            <div data-open-detail class="border text-card-foreground shadow h-[307px] cursor-pointer hover:bg-accent transition-colors bg-white border-[rgba(0,0,0,0.1)] rounded-[14px]">
+                <div class="p-[25px] flex flex-col gap-[30px] h-full">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-[16px] font-normal text-neutral-950 leading-[16px] line-clamp-1">${name}</h3>
+                        <div class="flex items-start gap-2">
+                            <div class="flex flex-col gap-[8px] items-end">
+                                <div class="bg-green-500 rounded-[8px] px-[9px] py-[3px]"><span class="text-[12px] text-white leading-[16px]">準備中</span></div>
+                                <div class="bg-[#eceef2] rounded-[8px] px-[9px] py-[3px] flex items-center gap-[4px]">
+                                    ${methodIconHTML}
+                                    <span class="text-[12px] text-[#030213] leading-[16px]">${methodLabel}</span>
+                                </div>
+                            </div>
+                            <button onclick="event.stopPropagation()" class="hover:bg-accent rounded-md p-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-[16px] flex-1 min-h-0">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-[8px]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar size-[14px] text-[#717182]"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                <span class="text-[14px] text-[#717182] leading-[20px]">${date}</span>
+                            </div>
+                        </div>
+                        <p class="text-[14px] text-neutral-950 leading-[20px] whitespace-pre-wrap line-clamp-3">${detail}</p>
+                        <div class="flex items-center gap-[8px] flex-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag size-[14px] text-[#717182]"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+            // Insert new card after the "Create New" card (index 1)
+            const grid = document.getElementById('card-grid');
+            const createCard = grid.firstElementChild;
+            createCard.insertAdjacentHTML('afterend', newCardHTML);
+            initializeDetailCardEvents();
+
+            // Close modal and reset form
+            toggleModal(false);
+            document.getElementById('create-form').reset();
+        }
+
+        initializeDetailCardEvents();
+    </script>
+</body>
+</html>

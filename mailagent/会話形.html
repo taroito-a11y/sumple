@@ -1,0 +1,908 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMM App</title>
+    <!-- Ethereal Flow: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script type="module" crossorigin="" src="/assets/index-DmwPXBkr.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/assets/index-DnVfDZBl.css">
+  <style type="text/css">[data-sonner-toaster][dir=ltr],html[dir=ltr]{--toast-icon-margin-start:-3px;--toast-icon-margin-end:4px;--toast-svg-margin-start:-1px;--toast-svg-margin-end:0px;--toast-button-margin-start:auto;--toast-button-margin-end:0;--toast-close-button-start:0;--toast-close-button-end:unset;--toast-close-button-transform:translate(-35%, -35%)}[data-sonner-toaster][dir=rtl],html[dir=rtl]{--toast-icon-margin-start:4px;--toast-icon-margin-end:-3px;--toast-svg-margin-start:0px;--toast-svg-margin-end:-1px;--toast-button-margin-start:0;--toast-button-margin-end:auto;--toast-close-button-start:unset;--toast-close-button-end:0;--toast-close-button-transform:translate(35%, -35%)}[data-sonner-toaster]{position:fixed;width:var(--width);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;--gray1:hsl(0, 0%, 99%);--gray2:hsl(0, 0%, 97.3%);--gray3:hsl(0, 0%, 95.1%);--gray4:hsl(0, 0%, 93%);--gray5:hsl(0, 0%, 90.9%);--gray6:hsl(0, 0%, 88.7%);--gray7:hsl(0, 0%, 85.8%);--gray8:hsl(0, 0%, 78%);--gray9:hsl(0, 0%, 56.1%);--gray10:hsl(0, 0%, 52.3%);--gray11:hsl(0, 0%, 43.5%);--gray12:hsl(0, 0%, 9%);--border-radius:8px;box-sizing:border-box;padding:0;margin:0;list-style:none;outline:0;z-index:999999999;transition:transform .4s ease}@media (hover:none) and (pointer:coarse){[data-sonner-toaster][data-lifted=true]{transform:none}}[data-sonner-toaster][data-x-position=right]{right:var(--offset-right)}[data-sonner-toaster][data-x-position=left]{left:var(--offset-left)}[data-sonner-toaster][data-x-position=center]{left:50%;transform:translateX(-50%)}[data-sonner-toaster][data-y-position=top]{top:var(--offset-top)}[data-sonner-toaster][data-y-position=bottom]{bottom:var(--offset-bottom)}[data-sonner-toast]{--y:translateY(100%);--lift-amount:calc(var(--lift) * var(--gap));z-index:var(--z-index);position:absolute;opacity:0;transform:var(--y);touch-action:none;transition:transform .4s,opacity .4s,height .4s,box-shadow .2s;box-sizing:border-box;outline:0;overflow-wrap:anywhere}[data-sonner-toast][data-styled=true]{padding:16px;background:var(--normal-bg);border:1px solid var(--normal-border);color:var(--normal-text);border-radius:var(--border-radius);box-shadow:0 4px 12px rgba(0,0,0,.1);width:var(--width);font-size:13px;display:flex;align-items:center;gap:6px}[data-sonner-toast]:focus-visible{box-shadow:0 4px 12px rgba(0,0,0,.1),0 0 0 2px rgba(0,0,0,.2)}[data-sonner-toast][data-y-position=top]{top:0;--y:translateY(-100%);--lift:1;--lift-amount:calc(1 * var(--gap))}[data-sonner-toast][data-y-position=bottom]{bottom:0;--y:translateY(100%);--lift:-1;--lift-amount:calc(var(--lift) * var(--gap))}[data-sonner-toast][data-styled=true] [data-description]{font-weight:400;line-height:1.4;color:#3f3f3f}[data-rich-colors=true][data-sonner-toast][data-styled=true] [data-description]{color:inherit}[data-sonner-toaster][data-sonner-theme=dark] [data-description]{color:#e8e8e8}[data-sonner-toast][data-styled=true] [data-title]{font-weight:500;line-height:1.5;color:inherit}[data-sonner-toast][data-styled=true] [data-icon]{display:flex;height:16px;width:16px;position:relative;justify-content:flex-start;align-items:center;flex-shrink:0;margin-left:var(--toast-icon-margin-start);margin-right:var(--toast-icon-margin-end)}[data-sonner-toast][data-promise=true] [data-icon]>svg{opacity:0;transform:scale(.8);transform-origin:center;animation:sonner-fade-in .3s ease forwards}[data-sonner-toast][data-styled=true] [data-icon]>*{flex-shrink:0}[data-sonner-toast][data-styled=true] [data-icon] svg{margin-left:var(--toast-svg-margin-start);margin-right:var(--toast-svg-margin-end)}[data-sonner-toast][data-styled=true] [data-content]{display:flex;flex-direction:column;gap:2px}[data-sonner-toast][data-styled=true] [data-button]{border-radius:4px;padding-left:8px;padding-right:8px;height:24px;font-size:12px;color:var(--normal-bg);background:var(--normal-text);margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end);border:none;font-weight:500;cursor:pointer;outline:0;display:flex;align-items:center;flex-shrink:0;transition:opacity .4s,box-shadow .2s}[data-sonner-toast][data-styled=true] [data-button]:focus-visible{box-shadow:0 0 0 2px rgba(0,0,0,.4)}[data-sonner-toast][data-styled=true] [data-button]:first-of-type{margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end)}[data-sonner-toast][data-styled=true] [data-cancel]{color:var(--normal-text);background:rgba(0,0,0,.08)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-styled=true] [data-cancel]{background:rgba(255,255,255,.3)}[data-sonner-toast][data-styled=true] [data-close-button]{position:absolute;left:var(--toast-close-button-start);right:var(--toast-close-button-end);top:0;height:20px;width:20px;display:flex;justify-content:center;align-items:center;padding:0;color:var(--gray12);background:var(--normal-bg);border:1px solid var(--gray4);transform:var(--toast-close-button-transform);border-radius:50%;cursor:pointer;z-index:1;transition:opacity .1s,background .2s,border-color .2s}[data-sonner-toast][data-styled=true] [data-close-button]:focus-visible{box-shadow:0 4px 12px rgba(0,0,0,.1),0 0 0 2px rgba(0,0,0,.2)}[data-sonner-toast][data-styled=true] [data-disabled=true]{cursor:not-allowed}[data-sonner-toast][data-styled=true]:hover [data-close-button]:hover{background:var(--gray2);border-color:var(--gray5)}[data-sonner-toast][data-swiping=true]::before{content:'';position:absolute;left:-100%;right:-100%;height:100%;z-index:-1}[data-sonner-toast][data-y-position=top][data-swiping=true]::before{bottom:50%;transform:scaleY(3) translateY(50%)}[data-sonner-toast][data-y-position=bottom][data-swiping=true]::before{top:50%;transform:scaleY(3) translateY(-50%)}[data-sonner-toast][data-swiping=false][data-removed=true]::before{content:'';position:absolute;inset:0;transform:scaleY(2)}[data-sonner-toast][data-expanded=true]::after{content:'';position:absolute;left:0;height:calc(var(--gap) + 1px);bottom:100%;width:100%}[data-sonner-toast][data-mounted=true]{--y:translateY(0);opacity:1}[data-sonner-toast][data-expanded=false][data-front=false]{--scale:var(--toasts-before) * 0.05 + 1;--y:translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));height:var(--front-toast-height)}[data-sonner-toast]>*{transition:opacity .4s}[data-sonner-toast][data-x-position=right]{right:0}[data-sonner-toast][data-x-position=left]{left:0}[data-sonner-toast][data-expanded=false][data-front=false][data-styled=true]>*{opacity:0}[data-sonner-toast][data-visible=false]{opacity:0;pointer-events:none}[data-sonner-toast][data-mounted=true][data-expanded=true]{--y:translateY(calc(var(--lift) * var(--offset)));height:var(--initial-height)}[data-sonner-toast][data-removed=true][data-front=true][data-swipe-out=false]{--y:translateY(calc(var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=true]{--y:translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=false]{--y:translateY(40%);opacity:0;transition:transform .5s,opacity .2s}[data-sonner-toast][data-removed=true][data-front=false]::before{height:calc(var(--initial-height) + 20%)}[data-sonner-toast][data-swiping=true]{transform:var(--y) translateY(var(--swipe-amount-y,0)) translateX(var(--swipe-amount-x,0));transition:none}[data-sonner-toast][data-swiped=true]{user-select:none}[data-sonner-toast][data-swipe-out=true][data-y-position=bottom],[data-sonner-toast][data-swipe-out=true][data-y-position=top]{animation-duration:.2s;animation-timing-function:ease-out;animation-fill-mode:forwards}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=left]{animation-name:swipe-out-left}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=right]{animation-name:swipe-out-right}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=up]{animation-name:swipe-out-up}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=down]{animation-name:swipe-out-down}@keyframes swipe-out-left{from{transform:var(--y) translateX(var(--swipe-amount-x));opacity:1}to{transform:var(--y) translateX(calc(var(--swipe-amount-x) - 100%));opacity:0}}@keyframes swipe-out-right{from{transform:var(--y) translateX(var(--swipe-amount-x));opacity:1}to{transform:var(--y) translateX(calc(var(--swipe-amount-x) + 100%));opacity:0}}@keyframes swipe-out-up{from{transform:var(--y) translateY(var(--swipe-amount-y));opacity:1}to{transform:var(--y) translateY(calc(var(--swipe-amount-y) - 100%));opacity:0}}@keyframes swipe-out-down{from{transform:var(--y) translateY(var(--swipe-amount-y));opacity:1}to{transform:var(--y) translateY(calc(var(--swipe-amount-y) + 100%));opacity:0}}@media (max-width:600px){[data-sonner-toaster]{position:fixed;right:var(--mobile-offset-right);left:var(--mobile-offset-left);width:100%}[data-sonner-toaster][dir=rtl]{left:calc(var(--mobile-offset-left) * -1)}[data-sonner-toaster] [data-sonner-toast]{left:0;right:0;width:calc(100% - var(--mobile-offset-left) * 2)}[data-sonner-toaster][data-x-position=left]{left:var(--mobile-offset-left)}[data-sonner-toaster][data-y-position=bottom]{bottom:var(--mobile-offset-bottom)}[data-sonner-toaster][data-y-position=top]{top:var(--mobile-offset-top)}[data-sonner-toaster][data-x-position=center]{left:var(--mobile-offset-left);right:var(--mobile-offset-right);transform:none}}[data-sonner-toaster][data-sonner-theme=light]{--normal-bg:#fff;--normal-border:var(--gray4);--normal-text:var(--gray12);--success-bg:hsl(143, 85%, 96%);--success-border:hsl(145, 92%, 87%);--success-text:hsl(140, 100%, 27%);--info-bg:hsl(208, 100%, 97%);--info-border:hsl(221, 91%, 93%);--info-text:hsl(210, 92%, 45%);--warning-bg:hsl(49, 100%, 97%);--warning-border:hsl(49, 91%, 84%);--warning-text:hsl(31, 92%, 45%);--error-bg:hsl(359, 100%, 97%);--error-border:hsl(359, 100%, 94%);--error-text:hsl(360, 100%, 45%)}[data-sonner-toaster][data-sonner-theme=light] [data-sonner-toast][data-invert=true]{--normal-bg:#000;--normal-border:hsl(0, 0%, 20%);--normal-text:var(--gray1)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-invert=true]{--normal-bg:#fff;--normal-border:var(--gray3);--normal-text:var(--gray12)}[data-sonner-toaster][data-sonner-theme=dark]{--normal-bg:#000;--normal-bg-hover:hsl(0, 0%, 12%);--normal-border:hsl(0, 0%, 20%);--normal-border-hover:hsl(0, 0%, 25%);--normal-text:var(--gray1);--success-bg:hsl(150, 100%, 6%);--success-border:hsl(147, 100%, 12%);--success-text:hsl(150, 86%, 65%);--info-bg:hsl(215, 100%, 6%);--info-border:hsl(223, 43%, 17%);--info-text:hsl(216, 87%, 65%);--warning-bg:hsl(64, 100%, 6%);--warning-border:hsl(60, 100%, 9%);--warning-text:hsl(46, 87%, 65%);--error-bg:hsl(358, 76%, 10%);--error-border:hsl(357, 89%, 16%);--error-text:hsl(358, 100%, 81%)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]{background:var(--normal-bg);border-color:var(--normal-border);color:var(--normal-text)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]:hover{background:var(--normal-bg-hover);border-color:var(--normal-border-hover)}[data-rich-colors=true][data-sonner-toast][data-type=success]{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button]{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors=true][data-sonner-toast][data-type=info]{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors=true][data-sonner-toast][data-type=info] [data-close-button]{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors=true][data-sonner-toast][data-type=warning]{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}[data-rich-colors=true][data-sonner-toast][data-type=warning] [data-close-button]{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}[data-rich-colors=true][data-sonner-toast][data-type=error]{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}[data-rich-colors=true][data-sonner-toast][data-type=error] [data-close-button]{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}.sonner-loading-wrapper{--size:16px;height:var(--size);width:var(--size);position:absolute;inset:0;z-index:10}.sonner-loading-wrapper[data-visible=false]{transform-origin:center;animation:sonner-fade-out .2s ease forwards}.sonner-spinner{position:relative;top:50%;left:50%;height:var(--size);width:var(--size)}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite;background:var(--gray11);border-radius:6px;height:8%;left:-10%;position:absolute;top:-3.9%;width:24%}.sonner-loading-bar:first-child{animation-delay:-1.2s;transform:rotate(.0001deg) translate(146%)}.sonner-loading-bar:nth-child(2){animation-delay:-1.1s;transform:rotate(30deg) translate(146%)}.sonner-loading-bar:nth-child(3){animation-delay:-1s;transform:rotate(60deg) translate(146%)}.sonner-loading-bar:nth-child(4){animation-delay:-.9s;transform:rotate(90deg) translate(146%)}.sonner-loading-bar:nth-child(5){animation-delay:-.8s;transform:rotate(120deg) translate(146%)}.sonner-loading-bar:nth-child(6){animation-delay:-.7s;transform:rotate(150deg) translate(146%)}.sonner-loading-bar:nth-child(7){animation-delay:-.6s;transform:rotate(180deg) translate(146%)}.sonner-loading-bar:nth-child(8){animation-delay:-.5s;transform:rotate(210deg) translate(146%)}.sonner-loading-bar:nth-child(9){animation-delay:-.4s;transform:rotate(240deg) translate(146%)}.sonner-loading-bar:nth-child(10){animation-delay:-.3s;transform:rotate(270deg) translate(146%)}.sonner-loading-bar:nth-child(11){animation-delay:-.2s;transform:rotate(300deg) translate(146%)}.sonner-loading-bar:nth-child(12){animation-delay:-.1s;transform:rotate(330deg) translate(146%)}@keyframes sonner-fade-in{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}}@keyframes sonner-fade-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.8)}}@keyframes sonner-spin{0%{opacity:1}100%{opacity:.15}}@media (prefers-reduced-motion){.sonner-loading-bar,[data-sonner-toast],[data-sonner-toast]>*{transition:none!important;animation:none!important}}.sonner-loader{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transform-origin:center;transition:opacity .2s,transform .2s}.sonner-loader[data-visible=false]{opacity:0;transform:scale(.8) translate(-50%,-50%)}</style></head>
+  <body>
+    <div id="root"><div class="flex h-screen bg-background"><div class="w-20 h-screen bg-card border-r flex flex-col"><div class="h-20 flex items-center justify-center border-b"><div class="w-12 h-12 flex items-center justify-center"><img src="/deca-x-logo.svg" alt="Deca X Logo" class="w-12 h-12"></div></div><div class="flex-1 py-6 flex flex-col gap-4 items-center"><a class="w-14 h-14 rounded-lg hover:bg-accent flex items-center justify-center transition-colors " title="キャンペーン" href="/campaigns" data-discover="true" _tolgee="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard w-5.5 h-5.5"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg></a><a class="w-14 h-14 rounded-lg hover:bg-accent flex items-center justify-center transition-colors bg-accent" title="Chat" href="/chat" data-discover="true" _tolgee="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-5.5 h-5.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a><a class="w-14 h-14 rounded-lg hover:bg-accent flex items-center justify-center transition-colors " title="設定" href="/settings" data-discover="true" _tolgee="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings w-5.5 h-5.5"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></a></div><div class="flex flex-col items-center border-t"><div class="py-3"><div class="relative"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground w-14 h-14 rounded-lg hover:bg-accent transition-colors relative" title="Current language: 日本語"><div class="flex flex-col items-center justify-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span class="text-[10px] font-medium leading-none">JA</span></div></button></div></div><div class="h-20 flex items-center justify-center"><a class="w-12 h-12 rounded-full hover:bg-accent flex items-center justify-center transition-colors group " title="プロフィール" href="/profile" data-discover="true" _tolgee="true"><img src="https://s.gravatar.com/avatar/3f737e01e1417c587a9d71508dcc1b64?s=480&amp;r=pg&amp;d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fta.png" alt="user@example.com" class="w-12 h-12 rounded-full object-cover"></a></div></div></div><div class="flex-1 overflow-hidden"><div style="display: flex; height: 100%; background: rgb(248, 250, 252); overflow: hidden;"><div style="width: 240px; min-width: 240px; background: rgb(255, 255, 255); border-right: 1px solid rgb(241, 245, 249); display: flex; flex-direction: column; height: 100%;"><div style="padding: 24px 16px 16px; border-bottom: 1px solid rgb(241, 245, 249); display: flex; align-items: center; gap: 8px;"><button type="button" _tolgee="true" style="flex: 1 1 0%; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgb(99, 102, 241); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 150ms;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-plus"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M12 7v6"></path><path d="M9 10h6"></path></svg>New Chat</button><button type="button" aria-label="Close sidebar" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 8px; display: flex; align-items: center; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left-close"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path></svg></button></div><div style="flex: 1 1 0%; overflow-y: auto; padding: 8px; min-height: 0px;"><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: rgba(99, 102, 241, 0.1); margin-bottom: 2px;"><span style="color: rgb(99, 102, 241); font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">会員数の確認</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">New Chat</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ラベルデータのテーブル名確認</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">メルマガとLINE配信結果</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">でもグラについて知りたい</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">New Chat</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ユーザー属性の確認</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ユーザータグの保有者一覧</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">データベースのラベル一覧</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">利用頻度の高い乗車駅</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">New Chat</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">乗車駅別利用者属性分析</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">直近配信結果の要約</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">Member Point Balance Trends</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">メール配信の最適時間と曜日</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">旅行サービス反応ユーザー像</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">直近配信結果の要約依頼</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">Member Demographics Segment Breakdown</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ユーザータグ情報の取得</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ラベルにあるものを確認</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">タグ情報の格納テーブル確認</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ユーザータグ情報の確認依頼</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">会員向けLINE配信企画案</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">決済利用者の傾向とデモグラ</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div><div role="button" tabindex="0" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; cursor: pointer; background: transparent; margin-bottom: 2px;"><span style="color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%;">ユーザー種類の整理</span><button type="button" aria-label="Delete conversation" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; color: rgb(148, 163, 184); padding: 4px; border-radius: 6px; display: flex; align-items: center; flex-shrink: 0; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button></div></div><div style="padding: 8px 16px 16px; border-top: 1px solid rgb(241, 245, 249);"><button type="button" _tolgee="true" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; background: none; border: 1px solid rgb(252, 165, 165); border-radius: 8px; padding: 7px 12px; font-size: 13px; color: rgb(239, 68, 68); cursor: pointer; opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>Delete all</button></div></div><div style="flex: 1 1 0%; min-height: 0px; display: flex; flex-direction: column; overflow: hidden;"><div style="flex: 1 1 0%; min-height: 0px; overflow-y: auto; padding: 24px 32px; background: rgb(248, 250, 252); display: flex; flex-direction: column;"><div style="flex: 1 1 0%; display: flex; flex-direction: column; min-height: 0px;"><div style="display: flex; justify-content: flex-end; margin-bottom: 12px;"><div style="max-width: 70%; min-width: 0px; width: 100%; display: flex; flex-direction: column; gap: 6px;"><div style="padding: 12px 16px; border-radius: 16px 16px 4px; background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-size: 15px; font-weight: 500; line-height: 150%; box-shadow: none; word-break: break-word;">会員数何人いる？</div></div></div><div style="display: flex; justify-content: flex-start; margin-bottom: 12px;"><div style="max-width: 70%; min-width: 0px; width: 100%; display: flex; flex-direction: column; gap: 6px;"><div style="padding: 12px 16px; border-radius: 16px 16px 16px 4px; background: rgb(255, 255, 255); color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; line-height: 150%; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; word-break: break-word;"><div class="prose prose-sm max-w-none overflow-x-auto prose-headings:font-semibold prose-headings:text-[#334155] prose-p:text-[#334155] prose-p:leading-relaxed prose-strong:text-[#334155] prose-code:text-[#6366F1] prose-code:bg-[rgba(99,102,241,0.08)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:rounded-lg prose-pre:overflow-x-auto prose-li:text-[#334155] prose-blockquote:border-l-4 prose-blockquote:border-[#F1F5F9] prose-blockquote:text-[#94A3B8] prose-table:text-sm prose-a:text-[#6366F1] prose-a:no-underline hover:prose-a:underline"><div class="space-y-4 whitespace-normal [&amp;&gt;*:first-child]:mt-0 [&amp;&gt;*:last-child]:mb-0"><p>現在の会員数は <span class="font-semibold" data-streamdown="strong">423,051人</span> です。</p><p>※ 重複しない会員数で集計し、退会・脱会済みを除いた「現在のアクティブ会員」として算出しています。<br>
+必要なら次に以下も出せます：</p><ul class="list-inside list-disc whitespace-normal [li_&amp;]:pl-6" data-streamdown="unordered-list">
+<li class="py-1 [&amp;&gt;p]:inline" data-streamdown="list-item">月ごとの会員数推移</li>
+<li class="py-1 [&amp;&gt;p]:inline" data-streamdown="list-item">新規会員数 / 退会者数</li>
+<li class="py-1 [&amp;&gt;p]:inline" data-streamdown="list-item">会員属性別の内訳</li>
+</ul></div></div></div></div></div><div style="margin-top: 8px; margin-bottom: 12px;"><p _tolgee="true" style="font-size: 12px; font-weight: 600; color: rgb(148, 163, 184); margin-bottom: 8px; margin-left: 2px;">Suggested next steps</p><div style="display: flex; flex-direction: column; gap: 8px;"><button type="button" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 70%;"><span style="font-size: 14px; font-weight: 500; color: rgb(51, 65, 85); line-height: 140%;">月ごとの会員数推移はどうなっていますか？</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button><button type="button" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 70%;"><span style="font-size: 14px; font-weight: 500; color: rgb(51, 65, 85); line-height: 140%;">今月の新規会員数と退会者数は何人ですか？</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button><button type="button" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 70%;"><span style="font-size: 14px; font-weight: 500; color: rgb(51, 65, 85); line-height: 140%;">会員数を性別・年代別に分解できますか？</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button><button type="button" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 70%;"><span style="font-size: 14px; font-weight: 500; color: rgb(51, 65, 85); line-height: 140%;">過去1年で会員数はどれくらい増減しましたか？</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div></div></div></div><div style="padding: 16px 24px 24px; border-top: 1px solid rgb(241, 245, 249); background: rgb(255, 255, 255);"><div style="display: flex; align-items: center; gap: 12px; background: rgb(248, 250, 252); border-radius: 16px; padding: 12px 16px; border: 1px solid rgb(99, 102, 241); transition: border-color 150ms, box-shadow 150ms; box-shadow: rgba(99, 102, 241, 0.15) 0px 0px 0px 3px;"><button type="button" title="Select database" aria-label="Select database" _tolgee="true" style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; border: 1px solid rgb(226, 232, 240); background: rgb(248, 250, 252); cursor: pointer; flex-shrink: 0; transition: border-color 150ms, background 150ms;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button><div style="display: flex; align-items: center; gap: 5px; padding: 3px 8px 3px 10px; border-radius: 999px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); flex-shrink: 0; max-width: 140px;"><span style="font-size: 12px; font-weight: 600; color: rgb(99, 102, 241); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Member Attributes</span><button type="button" aria-label="Remove Member Attributes" style="display: flex; align-items: center; justify-content: center; background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; padding: 0px; flex-shrink: 0; color: rgb(99, 102, 241); opacity: 0.7;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><textarea placeholder="Type a message…" rows="1" _tolgee="true" style="flex: 1 1 0%; background: transparent; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; outline: none; resize: none; font-size: 15px; font-weight: 500; color: rgb(51, 65, 85); line-height: 150%; font-family: inherit; padding: 0px; min-height: 24px; max-height: 160px; overflow: auto; height: auto;"></textarea><button type="button" aria-label="Send message" _tolgee="true" style="background: rgba(148, 163, 184, 0.1); color: rgb(148, 163, 184); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 999px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: not-allowed; flex-shrink: 0; transition: background 150ms, color 150ms;" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg></button></div><p _tolgee="true" style="color: rgb(148, 163, 184); font-size: 13px; font-weight: 600; margin-top: 8px; text-align: center;">Enter to send · Shift+Enter for newline</p></div></div><div style="width: 480px; flex-shrink: 0; display: flex; flex-direction: column; height: 100%; border-left: 1px solid rgb(241, 245, 249); background: rgb(248, 250, 252); overflow: hidden;"><div style="padding: 14px 16px; border-bottom: 1px solid rgb(241, 245, 249); background: rgb(255, 255, 255); display: flex; align-items: center; gap: 8px; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain" style="color: rgb(99, 102, 241);"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg><span _tolgee="true" style="font-size: 13px; font-weight: 600; color: rgb(51, 65, 85);">Agent Thinking</span></div><div style="flex: 1 1 0%; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 12px;"><div class="" style="border-radius: 8px; border: 1px solid rgb(226, 232, 240); background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 3px; margin-bottom: 8px; overflow: hidden;"><button type="button" style="display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 10px 14px; border-width: medium; border-style: none; border-color: currentcolor; background: rgb(248, 250, 252); border-image: initial; cursor: pointer; text-align: left;"><div><div _tolgee="true" style="font-size: 13px; font-weight: 600; color: rgb(30, 41, 59);">Agent Workflow</div><div _tolgee="true" style="font-size: 11px; color: rgb(100, 116, 139);">Real-time execution steps</div></div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" style="color: rgb(148, 163, 184); transform: none; transition: transform 200ms;"><path d="m6 9 6 6 6-6"></path></svg></button><div style="max-height: 384px; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px;"><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">task</span> — Calling task</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">task</span> — Executing task</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><div><span style="font-weight: 600; color: rgb(51, 65, 85);">Args: </span><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{
+  "input": {
+    "subagent_type": "user_intent",
+    "description": "Classify the user request: '会員数何人いる？' Return intent label only."
+  }
+}</pre></div></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">task</span> — task completed</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><details><summary _tolgee="true" style="cursor: pointer; font-weight: 600; color: rgb(51, 65, 85);">Result</summary><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{"lg_name":"Command","update":{"files":{},"messages":[{"lc":1,"type":"constructor","id":["langchain_core","messages","ToolMessage"],"kwargs":{"content":"{\"intent\":\"analyze_data\",\"confidence\":0.92,\"reasoning\":\"The user is asking for a quantitative metric (member count), which falls under data analysis.\"}","tool_call_id":"call_VtPaHGTd4ojTrTuMtaFPchmI","name":"task","additional_kwargs":{},"response_metadata":{}}}]},"goto":[]}</pre></details></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — Calling write_todos</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — Executing write_todos</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><div><span style="font-weight: 600; color: rgb(51, 65, 85);">Args: </span><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{
+  "input": {
+    "todos": [
+      {
+        "content": "会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する",
+        "status": "in_progress"
+      },
+      {
+        "content": "結果を要約して日本語で回答する",
+        "status": "pending"
+      }
+    ]
+  }
+}</pre></div></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — write_todos completed</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><details><summary _tolgee="true" style="cursor: pointer; font-weight: 600; color: rgb(51, 65, 85);">Result</summary><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{"lg_name":"Command","update":{"todos":[{"content":"会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する","status":"in_progress"},{"content":"結果を要約して日本語で回答する","status":"pending"}],"messages":[{"lc":1,"type":"constructor","id":["langchain_core","messages","ToolMessage"],"kwargs":{"content":"Updated todo list to [{\"content\":\"会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する\",\"status\":\"in_progress\"},{\"content\":\"結果を要約して日本語で回答する\",\"status\":\"pending\"}]","tool_call_id":"call_zk8zGSfvDAz0KJ14WMqliGAQ","additional_kwargs":{},</pre></details></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">query_warehouse</span> — Calling query_warehouse</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">query_warehouse</span> — Executing query_warehouse</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><div><span style="font-weight: 600; color: rgb(51, 65, 85);">Args: </span><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{
+  "input": {
+    "question": "現在の会員数は何人ですか？重複しない会員の総数を教えてください。"
+  }
+}</pre></div></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">このSQLはwithdrawdateとunjointdateがNULLの会員を現会員とみなして重複しない会員数を集計しており、質問の意図に概ね沿っていますが、APPROX_COUNT_DISTINCTのため厳密値ではなく近似値です。</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">query_warehouse</span> — query_warehouse completed</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><details><summary _tolgee="true" style="cursor: pointer; font-weight: 600; color: rgb(51, 65, 85);">Result</summary><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{"lc":1,"type":"constructor","id":["langchain_core","messages","ToolMessage"],"kwargs":{"status":"success","content":"{\"sql\":\"WITH __member_master AS (\\n  SELECT\\n    memberno,\\n    unjointdate,\\n    withdrawdate\\n  FROM SAMPLE_DB.SAMPLE_SCHEMA.MEMBER_MASTER\\n)\\nSELECT\\n  APPROX_COUNT_DISTINCT(memberno) AS distinct_active_member_count\\nFROM __member_master\\nWHERE\\n  withdrawdate IS NULL AND unjointdate IS NULL\\n -- Generated by Cortex Analyst (requ</pre></details></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — Calling write_todos</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — Executing write_todos</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><div><span style="font-weight: 600; color: rgb(51, 65, 85);">Args: </span><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{
+  "input": {
+    "todos": [
+      {
+        "content": "会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する",
+        "status": "completed"
+      },
+      {
+        "content": "結果を要約して日本語で回答する",
+        "status": "in_progress"
+      }
+    ]
+  }
+}</pre></div></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);"><span style="font-family: ui-monospace, monospace; color: rgb(59, 130, 246);">write_todos</span> — write_todos completed</p><div style="margin-top: 4px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: rgb(100, 116, 139);"><details><summary _tolgee="true" style="cursor: pointer; font-weight: 600; color: rgb(51, 65, 85);">Result</summary><pre style="margin: 2px 0px 0px; padding: 4px 6px; background: rgb(241, 245, 249); border-radius: 4px; font-size: 10px; overflow: auto; max-height: 120px;">{"lg_name":"Command","update":{"todos":[{"content":"会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する","status":"completed"},{"content":"結果を要約して日本語で回答する","status":"in_progress"}],"messages":[{"lc":1,"type":"constructor","id":["langchain_core","messages","ToolMessage"],"kwargs":{"content":"Updated todo list to [{\"content\":\"会員数の定義に沿ってデータウェアハウスから現在の会員数を取得する\",\"status\":\"completed\"},{\"content\":\"結果を要約して日本語で回答する\",\"status\":\"in_progress\"}]","tool_call_id":"call_1S8plquhptWg4owwMzyYLKam","additional_kwargs"</pre></details></div><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div><div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 8px 10px;"><div style="display: flex; align-items: flex-start; gap: 8px;"><div style="flex-shrink: 0; padding-top: 1px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check" style="color: rgb(16, 185, 129);"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><div style="flex: 1 1 0%; min-width: 0px;"><p style="margin: 0px; font-size: 12px; font-weight: 500; color: rgb(30, 41, 59);">Analyzing your request...</p><p style="margin: 3px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">14:20:53</p></div></div></div></div></div></div></div></div></div></div><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section></div>
+    <script>
+      (() => {
+        const samples = [
+          {
+            title: "会員数の確認",
+            turns: [
+              ["会員数は何人いますか？", "現在のアクティブ会員数は <span class=\"font-semibold\" data-streamdown=\"strong\">428,300人</span> です。退会済みを除き、重複しない会員IDで集計しています。"],
+              ["先月から増えていますか？", "先月比では <span class=\"font-semibold\" data-streamdown=\"strong\">+5,820人</span>、増加率は1.4%です。新規登録が8,240人、退会が2,420人でした。"],
+              ["年代別ではどこが多い？", "30代が31%、40代が27%、20代が21%です。30〜40代で全体の <span class=\"font-semibold\" data-streamdown=\"strong\">58%</span> を占めています。"],
+              ["休眠会員はどれくらい？", "直近180日未利用の休眠会員は <span class=\"font-semibold\" data-streamdown=\"strong\">96,500人</span> で、全体の22.5%です。"],
+              ["配信対象にするなら何人くらい？", "休眠会員を除き、メール受信許諾ありの対象は <span class=\"font-semibold\" data-streamdown=\"strong\">286,400人</span> です。まずはこの母数で見るのがよさそうです。"]
+            ],
+            suggestions: ["月ごとの会員数推移を見たい", "年代別の内訳を知りたい", "新規会員数も確認したい", "退会者数との比較を見たい"]
+          },
+          {
+            title: "ユーザー属性の確認",
+            turns: [
+              ["ユーザー属性の傾向を教えて", "年代別では <span class=\"font-semibold\" data-streamdown=\"strong\">30代が31%</span>、40代が27%、20代が21%です。性別では女性が58%、男性が39%、未回答が3%でした。"],
+              ["女性ユーザーはどの年代が多い？", "女性では30代が34%、40代が29%、20代が22%です。特に30〜40代女性が <span class=\"font-semibold\" data-streamdown=\"strong\">63%</span> を占めます。"],
+              ["男性ユーザーの特徴は？", "男性は40代が31%、50代が24%で、平均利用頻度は月 <span class=\"font-semibold\" data-streamdown=\"strong\">2.8回</span> です。"],
+              ["エリア別では？", "中心エリアが42%、郊外エリアが35%、その他が23%です。中心エリアは開封率も <span class=\"font-semibold\" data-streamdown=\"strong\">36.7%</span> と高めです。"],
+              ["施策に使いやすいセグメントは？", "30〜40代女性かつ中心エリア利用者が <span class=\"font-semibold\" data-streamdown=\"strong\">74,200人</span> いて、反応率も安定しています。"]
+            ],
+            suggestions: ["年代別に詳しく見る", "性別ごとの購買傾向を見る", "居住エリア別に分ける", "属性別の施策案を出す"]
+          },
+          {
+            title: "配信結果の要約",
+            turns: [
+              ["直近配信結果を要約して", "直近配信の開封率は <span class=\"font-semibold\" data-streamdown=\"strong\">34.8%</span>、クリック率は6.2%、コンバージョン率は1.4%でした。"],
+              ["前回と比べると？", "前回比で開封率は+1.9pt、クリック率は+0.8ptです。配信対象は <span class=\"font-semibold\" data-streamdown=\"strong\">182,000人</span> でした。"],
+              ["一番クリックされた内容は？", "最もクリックされたのはキャンペーン詳細リンクで、クリック数は <span class=\"font-semibold\" data-streamdown=\"strong\">5,430件</span> です。"],
+              ["反応が高かった層は？", "30代女性のクリック率が8.1%、40代女性が7.4%で高めでした。全体平均6.2%を上回っています。"],
+              ["次回改善するなら？", "件名に具体的な期限を入れるとよさそうです。期限あり件名の開封率は通常より <span class=\"font-semibold\" data-streamdown=\"strong\">+2.3pt</span> 高い傾向です。"]
+            ],
+            suggestions: ["クリック率が高いリンクを知りたい", "セグメント別に比較したい", "改善案を出して", "次回配信の件名案を作る"]
+          },
+          {
+            title: "利用頻度の高い駅",
+            turns: [
+              ["利用頻度の高い乗車駅を教えて", "利用頻度が高い駅は、主要駅Aが <span class=\"font-semibold\" data-streamdown=\"strong\">18,420人</span>、主要駅Bが14,880人、主要駅Cが11,230人でした。"],
+              ["上位駅の利用頻度は？", "主要駅Aは月平均3.6回、主要駅Bは3.1回、主要駅Cは2.9回です。主要駅Aが最もリピート率も高いです。"],
+              ["平日と休日で違う？", "平日は主要駅Aが強く、休日は主要駅Cの構成比が <span class=\"font-semibold\" data-streamdown=\"strong\">1.4倍</span> に上がります。"],
+              ["年代別では？", "主要駅Aは20〜30代が46%、主要駅Bは40〜50代が52%、主要駅Cはファミリー層が38%です。"],
+              ["配信に使うなら？", "主要駅A利用者 <span class=\"font-semibold\" data-streamdown=\"strong\">18,420人</span> に通勤時間帯向けの短文訴求を出すのが相性よさそうです。"]
+            ],
+            suggestions: ["上位10駅を見たい", "駅ごとの年代構成を見る", "平日と休日で比較する", "駅別の配信案を作る"]
+          },
+          {
+            title: "乗車駅別属性分析",
+            turns: [
+              ["乗車駅別の利用者属性を分析して", "主要駅Aは20〜30代が46%、主要駅Bは40〜50代が52%、主要駅Cはファミリー層が38%と高めです。"],
+              ["若年層が多い駅は？", "若年層比率が高いのは主要駅Dで、20代以下が <span class=\"font-semibold\" data-streamdown=\"strong\">33%</span> です。次いで主要駅Aが29%です。"],
+              ["ファミリー層は？", "ファミリー層は主要駅Cが38%、主要駅Eが35%です。休日利用比率もそれぞれ42%、39%と高めです。"],
+              ["高頻度利用者が多い駅は？", "高頻度利用者は主要駅Aが <span class=\"font-semibold\" data-streamdown=\"strong\">6,200人</span>、主要駅Bが4,980人です。"],
+              ["駅別に訴求を変えるべき？", "はい。主要駅Aは時短訴求、主要駅Bは実用情報、主要駅Cは家族向け企画が反応しやすい傾向です。"]
+            ],
+            suggestions: ["駅別におすすめ訴求を出す", "年代別に駅をランキングする", "ファミリー層が多い駅を知る", "通勤利用が多い駅を見たい"]
+          },
+          {
+            title: "メール最適時間",
+            turns: [
+              ["メール配信の最適な時間と曜日は？", "最も反応が高いのは <span class=\"font-semibold\" data-streamdown=\"strong\">木曜 19時台</span> で、平均開封率は38.1%でした。"],
+              ["次に良い時間は？", "次点は火曜12時台で開封率36.4%、水曜20時台で35.9%です。昼休みと夜の時間帯が強いです。"],
+              ["クリック率も同じ傾向？", "クリック率は木曜19時台が7.0%、火曜12時台が6.5%です。開封後の行動も木曜夜がやや強いです。"],
+              ["年代で違いはある？", "20〜30代は夜、40代以上は昼の反応が高めです。40代以上の火曜12時台クリック率は <span class=\"font-semibold\" data-streamdown=\"strong\">6.9%</span> です。"],
+              ["次回はいつ配信すべき？", "全体配信なら木曜19時台、40代以上中心なら火曜12時台がおすすめです。想定開封率は <span class=\"font-semibold\" data-streamdown=\"strong\">37〜38%</span> です。"]
+            ],
+            suggestions: ["曜日別の詳細を見たい", "時間帯別に比較したい", "LINE配信でも見たい", "次回の配信日時を提案して"]
+          },
+          {
+            title: "ポイント残高推移",
+            turns: [
+              ["ポイント残高の推移を見せて", "平均ポイント残高は直近3か月で <span class=\"font-semibold\" data-streamdown=\"strong\">1,240pt</span> から1,390ptへ増加しています。"],
+              ["高残高ユーザーはどれくらい？", "3,000pt以上の高残高ユーザーは <span class=\"font-semibold\" data-streamdown=\"strong\">54,100人</span> で、全体の12.6%です。"],
+              ["ポイント利用率は？", "直近30日のポイント利用率は18.3%です。高残高ユーザーに限ると <span class=\"font-semibold\" data-streamdown=\"strong\">11.8%</span> と低めです。"],
+              ["どの年代が残高高い？", "平均残高は50代が1,680pt、40代が1,510pt、30代が1,260ptです。40代以上で残高が積み上がりやすいです。"],
+              ["施策は何がよさそう？", "3,000pt以上の <span class=\"font-semibold\" data-streamdown=\"strong\">54,100人</span> に期限つき利用促進を出すと、休眠化防止に使えそうです。"]
+            ],
+            suggestions: ["高残高ユーザーを抽出したい", "ポイント利用率を見たい", "残高別に反応を比較する", "ポイント消化施策を考える"]
+          },
+          {
+            title: "決済利用者の傾向",
+            turns: [
+              ["決済利用者の傾向を教えて", "決済利用者は全会員の <span class=\"font-semibold\" data-streamdown=\"strong\">22.4%</span> で、月2回以上利用する層は8.7%です。"],
+              ["年代別では？", "30代の決済利用率が25.8%、40代が24.9%で高めです。20代は21.1%、50代は19.7%です。"],
+              ["非利用者との違いは？", "決済利用者はメールクリック率が7.3%で、非利用者の4.9%より <span class=\"font-semibold\" data-streamdown=\"strong\">2.4pt</span> 高いです。"],
+              ["頻度が高い人はどれくらい？", "月4回以上の高頻度決済ユーザーは <span class=\"font-semibold\" data-streamdown=\"strong\">18,900人</span> です。"],
+              ["利用促進するなら？", "直近90日ログインあり・決済未利用の <span class=\"font-semibold\" data-streamdown=\"strong\">62,300人</span> が初回利用促進の候補です。"]
+            ],
+            suggestions: ["決済頻度別に分ける", "非利用者との違いを見る", "利用促進案を出す", "年代別の利用率を見たい"]
+          },
+          {
+            title: "タグ保有者一覧",
+            turns: [
+              ["ユーザータグの保有者数を教えて", "主なタグの保有者数は、ファミリー層が <span class=\"font-semibold\" data-streamdown=\"strong\">63,500人</span>、旅行関心層が41,200人、高頻度利用者が29,800人です。"],
+              ["タグの重複はある？", "ファミリー層と旅行関心層の重複は <span class=\"font-semibold\" data-streamdown=\"strong\">12,600人</span> です。高頻度利用者との重複も8,900人います。"],
+              ["反応率が高いタグは？", "旅行関心層のクリック率が8.4%、高頻度利用者が7.9%、ファミリー層が6.8%です。"],
+              ["配信対象として大きいタグは？", "ファミリー層が最大で63,500人、次いで価格重視層が52,800人、旅行関心層が41,200人です。"],
+              ["おすすめの組み合わせは？", "旅行関心層かつ高頻度利用者の <span class=\"font-semibold\" data-streamdown=\"strong\">9,400人</span> は反応率が高く、優先配信に向いています。"]
+            ],
+            suggestions: ["タグごとの重複を見たい", "タグ別の反応率を見る", "配信対象を作りたい", "タグ定義を確認したい"]
+          },
+          {
+            title: "旅行サービス反応",
+            turns: [
+              ["旅行サービスに反応したユーザー像を教えて", "旅行サービス反応ユーザーは <span class=\"font-semibold\" data-streamdown=\"strong\">18,700人</span> で、40代以上が55%、週末利用が多い層が43%でした。"],
+              ["性別ではどうですか？", "女性が61%、男性が36%、未回答が3%です。女性40〜50代の反応が特に高めです。"],
+              ["普段の利用傾向は？", "月2回以上利用する人が <span class=\"font-semibold\" data-streamdown=\"strong\">47%</span> で、全体平均の32%を上回ります。"],
+              ["どの訴求に反応した？", "宿泊つきプランよりも日帰り・週末おでかけ訴求のクリック率が高く、日帰り訴求は <span class=\"font-semibold\" data-streamdown=\"strong\">8.8%</span> でした。"],
+              ["次回配信の対象は？", "旅行関心タグあり・週末利用多めの <span class=\"font-semibold\" data-streamdown=\"strong\">24,600人</span> を対象にすると、反応が見込めそうです。"]
+            ],
+            suggestions: ["反応ユーザーを年代別に見る", "次回配信案を作る", "未反応ユーザーと比較する", "旅行関心タグを確認する"]
+          }
+        ];
+        const presetQuestions = [
+          "今日の売上は？昨日比と先週同曜日比も教えて。",
+          "広告チャネル別のROASを今日時点で更新して。",
+          "CVRが急落しているページがあれば上位3件を出して。",
+          "在庫が7日以内に欠品しそうな商品を一覧で見せて。"
+        ];
+        const sidebarLabels = samples.map((sample) => sample.title);
+
+        const menuItems = Array.from(document.querySelectorAll('div[role="button"][tabindex="0"]')).filter((item) => item.querySelector("span"));
+        const newChatButton = Array.from(document.querySelectorAll("button")).find((button) => button.textContent.trim() === "New Chat");
+        const databaseButton = document.querySelector('button[aria-label="Select database"]');
+        const initialAnswerBody = document.querySelector(".space-y-4.whitespace-normal");
+        const chatThread = initialAnswerBody?.closest('div[style*="flex: 1 1 0%; display: flex; flex-direction: column"]');
+        let selectedDatabaseName = "会員属性";
+        const databaseOptions = [
+          {
+            name: "乗車・移動履歴",
+            description: "乗車駅、降車駅、路線、定期利用、乗車頻度、通勤傾向など、移動行動の分析に使うデータです。"
+          },
+          {
+            name: "ポイント履歴",
+            description: "ポイント残高、付与・利用履歴、失効予定、高残高ユーザー、ポイント利用傾向を確認するためのデータです。"
+          },
+          {
+            name: "決済・購買履歴",
+            description: "決済利用、購入金額、購入頻度、商品カテゴリ、リピート購入、顧客価値の分析に使うデータです。"
+          },
+          {
+            name: "会員属性",
+            description: "会員プロフィール、年代、性別、居住エリア、会員状態、配信許諾、アクティブ・休眠判定を含むデータです。"
+          },
+          {
+            name: "デジタル接点",
+            description: "メール、LINE、アプリ、キャンペーン配信、開封、クリック、CV、チャネル反応を確認するためのデータです。"
+          }
+        ];
+
+        function setupLeftNav() {
+          const appShell = document.querySelector("#root > div");
+          const globalNav = appShell?.children[0];
+          const contentShell = appShell?.children[1];
+          const mainLayout = contentShell?.firstElementChild;
+          const sidebar = mainLayout?.children[0];
+          const sidebarTop = sidebar?.firstElementChild;
+          const chatList = sidebar?.children[1];
+          const deleteAllWrap = sidebar?.lastElementChild;
+          const thinkingPanel = mainLayout?.children[2];
+
+          if (appShell) {
+            appShell.style.display = "grid";
+            appShell.style.gridTemplateColumns = "64px 1fr";
+            appShell.style.height = "100vh";
+            appShell.style.background = "rgb(248, 250, 252)";
+            appShell.style.overflow = "hidden";
+          }
+          if (contentShell) {
+            contentShell.style.minWidth = "0";
+            contentShell.style.overflow = "hidden";
+          }
+          if (mainLayout) {
+            mainLayout.style.display = "grid";
+            mainLayout.style.gridTemplateColumns = "240px minmax(0, 1fr) 420px";
+            mainLayout.style.height = "100%";
+            mainLayout.style.background = "rgb(248, 250, 252)";
+            mainLayout.style.overflow = "hidden";
+          }
+          if (thinkingPanel) {
+            thinkingPanel.style.width = "420px";
+            thinkingPanel.style.minWidth = "420px";
+          }
+          if (globalNav) {
+            globalNav.style.width = "64px";
+            globalNav.style.minWidth = "64px";
+            globalNav.style.height = "100vh";
+            globalNav.style.background = "rgb(255, 255, 255)";
+            globalNav.style.borderRight = "1px solid rgb(226, 232, 240)";
+            globalNav.style.display = "flex";
+            globalNav.style.flexDirection = "column";
+            globalNav.style.alignItems = "center";
+          }
+
+          const logo = document.querySelector('img[alt="Deca X Logo"]');
+          if (logo) {
+            logo.src = "https://deca-custom-nmcm-web.vercel.app/deca-x-logo.svg";
+            logo.style.width = "52px";
+            logo.style.height = "auto";
+            const logoWrap = logo.closest(".h-20") || logo.parentElement?.parentElement;
+            if (logoWrap) {
+              logoWrap.style.width = "100%";
+              logoWrap.style.height = "80px";
+              logoWrap.style.display = "flex";
+              logoWrap.style.alignItems = "center";
+              logoWrap.style.justifyContent = "center";
+              logoWrap.style.borderBottom = "1px solid rgb(226, 232, 240)";
+            }
+          }
+
+          const navItems = [
+            { currentTitle: "キャンペーン", title: "index", href: "./index.html", active: false },
+            { currentTitle: "Chat", title: "会話形", href: "./会話形.html", active: true },
+            { currentTitle: "設定", title: "設定", href: "#", active: false, hidden: true }
+          ];
+          navItems.forEach(({ currentTitle, title, href, active, hidden }) => {
+            const link = document.querySelector(`a[title="${currentTitle}"]`);
+            if (!link) return;
+            link.title = title;
+            link.href = href;
+            link.style.width = "56px";
+            link.style.height = "56px";
+            link.style.borderRadius = "8px";
+            link.style.display = hidden ? "none" : "flex";
+            link.style.alignItems = "center";
+            link.style.justifyContent = "center";
+            link.style.textDecoration = "none";
+            link.style.background = active ? "rgb(241, 245, 249)" : "transparent";
+            link.style.color = active ? "rgb(15, 23, 42)" : "rgb(51, 65, 85)";
+            link.style.border = active ? "0" : "1px solid transparent";
+            const svg = link.querySelector("svg");
+            if (svg) {
+              svg.style.width = "22px";
+              svg.style.height = "22px";
+            }
+          });
+          const navLinks = document.querySelector('a[title="index"]')?.parentElement;
+          if (navLinks) {
+            navLinks.style.flex = "1";
+            navLinks.style.width = "100%";
+            navLinks.style.padding = "24px 0";
+            navLinks.style.display = "flex";
+            navLinks.style.flexDirection = "column";
+            navLinks.style.gap = "16px";
+            navLinks.style.alignItems = "center";
+          }
+
+          const lowerNav = document.querySelector('button[title^="Current language"]')?.closest('[class*="border-t"]');
+          if (lowerNav) {
+            lowerNav.style.width = "100%";
+            lowerNav.style.borderTop = "0";
+            lowerNav.style.display = "flex";
+            lowerNav.style.flexDirection = "column";
+            lowerNav.style.alignItems = "center";
+            lowerNav.style.gap = "10px";
+            lowerNav.style.padding = "0 0 14px";
+          }
+          const languageButton = document.querySelector('button[title^="Current language"]');
+          if (languageButton) {
+            languageButton.style.width = "44px";
+            languageButton.style.height = "44px";
+            languageButton.style.borderRadius = "12px";
+            languageButton.style.padding = "0";
+            languageButton.style.border = "0";
+            languageButton.style.background = "transparent";
+            languageButton.style.color = "rgb(51, 65, 85)";
+            languageButton.style.display = "flex";
+            languageButton.style.alignItems = "center";
+            languageButton.style.justifyContent = "center";
+            const languageContent = languageButton.firstElementChild;
+            if (languageContent) {
+              languageContent.style.display = "flex";
+              languageContent.style.flexDirection = "column";
+              languageContent.style.alignItems = "center";
+              languageContent.style.justifyContent = "center";
+              languageContent.style.gap = "2px";
+            }
+            const languageIcon = languageButton.querySelector("svg");
+            if (languageIcon) {
+              languageIcon.style.width = "20px";
+              languageIcon.style.height = "20px";
+            }
+            const languageLabel = languageButton.querySelector("span");
+            if (languageLabel) {
+              languageLabel.style.fontSize = "10px";
+              languageLabel.style.fontWeight = "600";
+              languageLabel.style.lineHeight = "1";
+            }
+          }
+          const profileLink = document.querySelector('a[title="プロフィール"]');
+          if (profileLink) {
+            profileLink.style.width = "44px";
+            profileLink.style.height = "44px";
+            profileLink.style.borderRadius = "999px";
+            profileLink.style.overflow = "hidden";
+          }
+          const profileImage = profileLink?.querySelector("img");
+          if (profileImage) {
+            profileImage.style.width = "44px";
+            profileImage.style.height = "44px";
+            profileImage.style.borderRadius = "999px";
+            profileImage.style.objectFit = "cover";
+          }
+
+          const closeSidebarButton = document.querySelector('button[aria-label="Close sidebar"]');
+          if (closeSidebarButton) {
+            closeSidebarButton.style.display = "flex";
+            closeSidebarButton.style.width = "28px";
+            closeSidebarButton.style.height = "28px";
+            closeSidebarButton.style.padding = "0";
+            closeSidebarButton.style.alignItems = "center";
+            closeSidebarButton.style.justifyContent = "center";
+            closeSidebarButton.style.color = "rgb(148, 163, 184)";
+            closeSidebarButton.style.background = "transparent";
+          }
+
+          if (sidebar) {
+            sidebar.style.width = "240px";
+            sidebar.style.minWidth = "240px";
+            sidebar.style.height = "100%";
+            sidebar.style.background = "rgb(255, 255, 255)";
+            sidebar.style.borderRight = "1px solid rgb(226, 232, 240)";
+            sidebar.style.display = "flex";
+            sidebar.style.flexDirection = "column";
+            sidebar.style.minHeight = "0";
+          }
+          if (sidebarTop) {
+            sidebarTop.style.padding = "24px 14px 16px";
+            sidebarTop.style.borderBottom = "0";
+            sidebarTop.style.display = "flex";
+            sidebarTop.style.alignItems = "center";
+            sidebarTop.style.gap = "8px";
+          }
+          if (newChatButton) {
+            newChatButton.style.flex = "1";
+            newChatButton.style.width = "auto";
+            newChatButton.style.border = "0";
+            newChatButton.style.borderRadius = "999px";
+            newChatButton.style.padding = "11px 18px";
+            newChatButton.style.background = "rgb(99, 102, 241)";
+            newChatButton.style.color = "rgb(255, 255, 255)";
+            newChatButton.style.fontSize = "15px";
+            newChatButton.style.fontWeight = "600";
+            newChatButton.style.cursor = "pointer";
+            newChatButton.style.display = "flex";
+            newChatButton.style.alignItems = "center";
+            newChatButton.style.justifyContent = "center";
+            newChatButton.style.gap = "7px";
+            newChatButton.querySelectorAll("svg").forEach((svg) => {
+              svg.style.display = "block";
+              svg.style.width = "16px";
+              svg.style.height = "16px";
+            });
+          }
+          if (chatList) {
+            chatList.style.padding = "8px 14px 10px";
+            chatList.style.overflow = "auto";
+            chatList.style.flex = "1";
+            chatList.style.minHeight = "0";
+          }
+          menuItems.forEach((item) => {
+            item.style.display = item.style.display === "none" ? "none" : "flex";
+            item.style.width = "100%";
+            item.style.textAlign = "left";
+            item.style.border = "0";
+            item.style.borderRadius = "12px";
+            item.style.padding = "11px 12px";
+            item.style.cursor = "pointer";
+            item.style.marginBottom = "2px";
+            item.style.justifyContent = "space-between";
+            item.style.alignItems = "center";
+            item.style.gap = "8px";
+            item.style.boxSizing = "border-box";
+            const label = item.querySelector("span");
+            if (label) {
+              label.style.display = "block";
+              label.style.fontSize = "15px";
+              label.style.overflow = "hidden";
+              label.style.textOverflow = "ellipsis";
+              label.style.whiteSpace = "nowrap";
+              label.style.flex = "1";
+              label.style.minWidth = "0";
+            }
+            const deleteButton = item.querySelector("button");
+            if (deleteButton) {
+              deleteButton.style.display = "flex";
+              deleteButton.style.alignItems = "center";
+              deleteButton.style.justifyContent = "center";
+              deleteButton.style.width = "24px";
+              deleteButton.style.height = "24px";
+              deleteButton.style.padding = "0";
+              deleteButton.style.opacity = "1";
+              deleteButton.style.color = "rgb(148, 163, 184)";
+              deleteButton.style.background = "transparent";
+              deleteButton.querySelectorAll("svg").forEach((svg) => {
+                svg.style.width = "15px";
+                svg.style.height = "15px";
+              });
+            }
+          });
+          if (deleteAllWrap) {
+            deleteAllWrap.style.display = "block";
+            deleteAllWrap.style.padding = "14px";
+            deleteAllWrap.style.borderTop = "0";
+            const deleteAllButton = deleteAllWrap.querySelector("button");
+            if (deleteAllButton) {
+              deleteAllButton.style.width = "100%";
+              deleteAllButton.style.border = "1px solid rgb(252, 165, 165)";
+              deleteAllButton.style.borderRadius = "8px";
+              deleteAllButton.style.padding = "10px 12px";
+              deleteAllButton.style.fontSize = "14px";
+              deleteAllButton.style.color = "rgb(239, 68, 68)";
+              deleteAllButton.style.background = "rgb(255, 255, 255)";
+            }
+          }
+        }
+        const escapeHtml = (value) => value
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
+        function getThinkingPanel() {
+          const appShell = document.querySelector("#root > div");
+          const contentShell = appShell?.children[1];
+          const mainLayout = contentShell?.firstElementChild;
+          return mainLayout?.children[2];
+        }
+
+        function getDataCloudQuery(title, question) {
+          if (title.includes("会員数")) return "現在のアクティブ会員数、前月比、年代別構成、休眠会員数を退会済み除外で集計して";
+          if (title.includes("属性")) return "会員の年代、性別、居住エリア、利用頻度を集計し、反応率が高い属性の組み合わせを教えて";
+          if (title.includes("配信")) return "直近配信の開封率、クリック率、CV率、前回比、反応が高かったセグメントを要約して";
+          if (title.includes("駅")) return "乗車駅別の利用者数、月間利用頻度、平日休日差、年代構成をランキングで出して";
+          if (title.includes("メール")) return "メール配信の曜日別・時間帯別の開封率とクリック率を比較して、最適な配信タイミングを教えて";
+          if (title.includes("ポイント")) return "ポイント残高の推移、高残高ユーザー数、ポイント利用率、年代別平均残高を集計して";
+          if (title.includes("決済")) return "決済利用者の割合、利用頻度、年代別利用率、非利用者との差分を分析して";
+          if (title.includes("タグ")) return "ユーザータグ別の保有者数、タグ重複、反応率、配信母数を比較して";
+          if (title.includes("旅行")) return "旅行サービスに反応したユーザーの年代、性別、週末利用傾向、反応した訴求を分析して";
+          if (question?.includes("売上")) return "今日の売上、昨日比、先週同曜日比、注文数、平均注文単価をまとめて";
+          if (question?.includes("ROAS")) return "広告チャネル別の広告費、売上、ROASを今日時点で更新して";
+          if (question?.includes("CVR")) return "直近でCVRが急落したページを低下幅順に3件出し、原因候補も添えて";
+          if (question?.includes("在庫")) return "在庫数と予測販売数から7日以内に欠品しそうな商品を一覧化して";
+          return `${question || title} に答えるために必要なData Cloud上の指標を集計して`;
+        }
+
+        function getSqlPreview(title, question) {
+          if (title.includes("会員数")) return `SELECT
+  COUNT(DISTINCT member_id) AS active_members,
+  COUNT_IF(last_active_at < DATEADD(day, -180, CURRENT_DATE)) AS dormant_members
+FROM data_cloud.member_profile
+WHERE withdrawn_at IS NULL;`;
+          if (title.includes("属性")) return `SELECT
+  age_band, gender, area,
+  COUNT(DISTINCT member_id) AS members,
+  AVG(open_rate) AS avg_open_rate
+FROM data_cloud.member_segments
+GROUP BY age_band, gender, area
+ORDER BY avg_open_rate DESC;`;
+          if (title.includes("配信")) return `SELECT
+  segment_name,
+  open_rate, click_rate, conversion_rate,
+  open_rate - previous_open_rate AS open_rate_diff
+FROM data_cloud.campaign_performance
+WHERE campaign_date >= DATEADD(day, -30, CURRENT_DATE)
+ORDER BY click_rate DESC;`;
+          if (title.includes("駅")) return `SELECT
+  station_name,
+  COUNT(DISTINCT member_id) AS users,
+  AVG(monthly_ride_count) AS avg_frequency,
+  TOP_K(age_band, 1) AS main_age_band
+FROM data_cloud.station_usage
+GROUP BY station_name
+ORDER BY users DESC;`;
+          if (title.includes("メール")) return `SELECT
+  send_weekday, send_hour,
+  AVG(open_rate) AS open_rate,
+  AVG(click_rate) AS click_rate
+FROM data_cloud.message_delivery
+GROUP BY send_weekday, send_hour
+ORDER BY open_rate DESC, click_rate DESC;`;
+          if (title.includes("ポイント")) return `SELECT
+  age_band,
+  AVG(point_balance) AS avg_balance,
+  COUNT_IF(point_balance >= 3000) AS high_balance_users,
+  AVG(point_usage_rate) AS usage_rate
+FROM data_cloud.point_summary
+GROUP BY age_band
+ORDER BY avg_balance DESC;`;
+          if (title.includes("決済")) return `SELECT
+  age_band,
+  COUNT_IF(payment_count > 0) / COUNT(*) AS payment_usage_rate,
+  AVG(payment_count) AS avg_payment_count,
+  AVG(mail_click_rate) AS avg_click_rate
+FROM data_cloud.member_payment_features
+GROUP BY age_band;`;
+          if (title.includes("タグ")) return `SELECT
+  tag_name,
+  COUNT(DISTINCT member_id) AS tagged_users,
+  AVG(click_rate) AS click_rate,
+  COUNT(DISTINCT campaign_target_id) AS targetable_users
+FROM data_cloud.member_tag_performance
+GROUP BY tag_name
+ORDER BY tagged_users DESC;`;
+          if (title.includes("旅行")) return `SELECT
+  age_band, gender,
+  COUNT(DISTINCT member_id) AS responders,
+  AVG(weekend_usage_rate) AS weekend_usage_rate,
+  TOP_K(clicked_offer_type, 1) AS strongest_offer
+FROM data_cloud.travel_reaction_members
+GROUP BY age_band, gender;`;
+          if (question?.includes("売上")) return `SELECT
+  SUM(revenue) AS sales_today,
+  SUM(orders) AS orders_today,
+  SUM(revenue) / NULLIF(SUM(orders), 0) AS avg_order_value
+FROM data_cloud.daily_sales
+WHERE sales_date = CURRENT_DATE;`;
+          if (question?.includes("ROAS")) return `SELECT
+  channel,
+  SUM(revenue) / NULLIF(SUM(ad_spend), 0) AS roas
+FROM data_cloud.ad_performance
+WHERE report_date = CURRENT_DATE
+GROUP BY channel
+ORDER BY roas DESC;`;
+          if (question?.includes("CVR")) return `SELECT
+  page_path,
+  current_cvr,
+  previous_cvr,
+  current_cvr - previous_cvr AS cvr_diff
+FROM data_cloud.page_conversion
+ORDER BY cvr_diff ASC
+LIMIT 3;`;
+          if (question?.includes("在庫")) return `SELECT
+  sku,
+  current_stock,
+  forecast_7d_sales,
+  current_stock - forecast_7d_sales AS projected_stock_gap
+FROM data_cloud.inventory_forecast
+WHERE current_stock < forecast_7d_sales
+ORDER BY projected_stock_gap ASC;`;
+          return `SELECT *
+FROM data_cloud.semantic_metrics
+WHERE natural_language_request = '${(question || title).replace(/'/g, "''")}';`;
+        }
+
+        function getWorkflowSteps(title, question) {
+          const request = question || title;
+          const dataCloudQuery = getDataCloudQuery(title, question);
+          return [
+            {
+              label: `ユーザーの自然文「${request}」を読み取り`,
+              detail: "対象指標、期間、除外条件、比較軸を抽出しています。"
+            },
+            {
+              label: "Data Cloudのセマンティックレイヤーに問い合わせ",
+              detail: `「${dataCloudQuery}」`
+            },
+            {
+              label: "生成されたSQLを確認して実行",
+              detail: getSqlPreview(title, question),
+              sql: true
+            },
+            {
+              label: "集計結果から回答を作成",
+              detail: "一番知りたい結論を先に出し、その数字から何が言えるかを短く補足します。"
+            }
+          ];
+        }
+
+        function renderWorkflow(title, question) {
+          const panel = getThinkingPanel();
+          const workflowCard = panel?.querySelector("button")?.parentElement;
+          const workflowList = workflowCard?.lastElementChild;
+          if (!workflowCard || !workflowList) return;
+
+          const titleNode = workflowCard.querySelector("button div div:first-child");
+          const subtitleNode = workflowCard.querySelector("button div div:nth-child(2)");
+          if (titleNode) titleNode.textContent = "Agent Workflow";
+          if (subtitleNode) subtitleNode.textContent = `${title} の実行ステップ`;
+
+          workflowList.innerHTML = getWorkflowSteps(title, question).map((step, index) => `
+            <div style="border-left: 3px solid rgb(16, 185, 129); background: rgb(236, 253, 245); border-radius: 0px 6px 6px 0px; padding: 9px 10px;">
+              <div style="display: flex; align-items: flex-start; gap: 8px;">
+                <div style="flex-shrink: 0; padding-top: 1px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgb(16, 185, 129)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                </div>
+                <div style="flex: 1 1 0%; min-width: 0px;">
+                  <p style="margin: 0px; font-size: 12px; font-weight: 700; color: rgb(30, 41, 59);">${escapeHtml(step.label)}</p>
+                  ${step.sql
+                    ? `<pre style="margin: 6px 0px 0px; padding: 7px 8px; border-radius: 6px; background: rgb(15, 23, 42); color: rgb(226, 232, 240); font-size: 10px; line-height: 1.45; overflow-x: auto; white-space: pre-wrap;">${escapeHtml(step.detail)}</pre>`
+                    : `<p style="margin: 5px 0px 0px; font-size: 11px; line-height: 1.45; color: rgb(71, 85, 105);">${escapeHtml(step.detail)}</p>`
+                  }
+                  <p style="margin: 4px 0px 0px; font-size: 10px; color: rgb(148, 163, 184);">Step ${index + 1}</p>
+                </div>
+              </div>
+            </div>
+          `).join("");
+        }
+
+        const userMessage = (text) => `
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
+            <div style="max-width: 70%; min-width: 0px; width: 100%; display: flex; flex-direction: column; gap: 6px;">
+              <div style="padding: 12px 16px; border-radius: 16px 16px 4px; background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-size: 15px; font-weight: 500; line-height: 150%; box-shadow: none; word-break: break-word;">${escapeHtml(text)}</div>
+            </div>
+          </div>
+        `;
+
+        const assistantMessage = (html) => `
+          <div style="display: flex; justify-content: flex-start; margin-bottom: 12px;">
+            <div style="max-width: 70%; min-width: 0px; width: 100%; display: flex; flex-direction: column; gap: 6px;">
+              <div style="padding: 12px 16px; border-radius: 16px 16px 16px 4px; background: rgb(255, 255, 255); color: rgb(51, 65, 85); font-size: 15px; font-weight: 500; line-height: 150%; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; word-break: break-word;">
+                <div class="prose prose-sm max-w-none overflow-x-auto prose-headings:font-semibold prose-headings:text-[#334155] prose-p:text-[#334155] prose-p:leading-relaxed prose-strong:text-[#334155]">
+                  <div class="space-y-4 whitespace-normal [&amp;&gt;*:first-child]:mt-0 [&amp;&gt;*:last-child]:mb-0"><p>${html}</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const suggestedNextSteps = (suggestions) => `
+          <div style="margin-top: 8px; margin-bottom: 12px;">
+            <p _tolgee="true" style="font-size: 12px; font-weight: 600; color: rgb(148, 163, 184); margin-bottom: 8px; margin-left: 2px;">Suggested next steps</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${suggestions.map((suggestion) => `
+                <button type="button" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px; transition: border-color 150ms, box-shadow 150ms; width: 100%; max-width: 70%;">
+                  <span style="font-size: 14px; font-weight: 500; color: rgb(51, 65, 85); line-height: 140%;">${escapeHtml(suggestion)}？</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="flex-shrink: 0;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+
+        const presetChoices = () => `
+          <div style="margin: 8px 0 12px; display: flex; justify-content: center;">
+            <div style="width: 100%; max-width: 860px;">
+              <p style="font-size: 13px; font-weight: 600; color: rgb(148, 163, 184); margin: 0 0 10px;">日次チェック項目</p>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+                ${presetQuestions.map((question) => `
+                  <button type="button" data-preset-question="${escapeHtml(question)}" style="background: rgb(255, 255, 255); border: 1px solid rgb(241, 245, 249); border-radius: 12px; padding: 14px 16px; cursor: pointer; text-align: left; color: rgb(51, 65, 85); font-size: 14px; font-weight: 500; line-height: 150%; box-shadow: rgba(0, 0, 0, 0.02) 0px 10px 25px -5px, rgba(0, 0, 0, 0.01) 0px 8px 10px -6px;">${escapeHtml(question)}</button>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+        `;
+
+        function getPresetReply(question) {
+          if (question.includes("今日の売上")) {
+            return "今日の売上は <span class=\"font-semibold\" data-streamdown=\"strong\">12,480,000円</span> です。昨日比は+8.4%、先週同曜日比は+5.1%でした。注文数は3,260件、平均注文単価は3,828円です。<br><br>Data Cloud上の当日売上、注文数、前日・前年同曜日比較の指標をまとめて見ると、売上増は注文数の増加が主因です。単価も大きく下がっていないため、値引きで無理に伸ばしたというより、流入または購入率が改善している可能性が高いです。次に見るなら、チャネル別売上と時間帯別売上を分けると、どこで伸びたのか判断しやすくなります。";
+          }
+          if (question.includes("ROAS")) {
+            return "広告チャネル別ROASは、検索広告が <span class=\"font-semibold\" data-streamdown=\"strong\">418%</span>、SNS広告が286%、ディスプレイ広告が174%です。検索広告が最も効率よく獲得できています。<br><br>Data Cloudで広告費、流入、購入売上をチャネル別に突き合わせると、検索広告は購入意向が高いユーザーの獲得に寄っており、費用対効果が安定しています。一方でSNS広告は認知寄りの配信が混ざっているため、ROASだけで見ると検索より低く出ています。次は新規購入と既存購入を分けて、どのチャネルを拡大すべきか確認するのがよさそうです。";
+          }
+          if (question.includes("CVR")) {
+            return "<strong>CVR急落ページ（ダミー）Top 3</strong><br>1. /lp/spring-campaign - CVR 3.4% → 1.7%（-50.0%）<br>2. /products/sku-4812 - CVR 2.1% → 1.2%（-42.9%）<br>3. /cart/upsell-bundle - CVR 5.0% → 3.2%（-36.0%）<br><br>Data Cloudでページ別の流入数、CV数、前期間CVRを比較したところ、上記3ページは流入規模もあり、優先的に確認する価値があります。特にLPは流入元の変化やファーストビューの訴求差、商品詳細は在庫・価格・レビュー表示、カート導線は追加提案の表示条件が影響している可能性があります。まずは流入チャネル別にCVRを分解すると、ページ自体の問題か集客の質の変化かを切り分けられます。";
+          }
+          return "7日以内に欠品しそうな商品は <span class=\"font-semibold\" data-streamdown=\"strong\">12件</span> あります。特に SKU-4812 は残在庫38点、予測販売数52点のため、3日以内の補充を推奨します。<br><br>Data Cloud上で現在庫、直近販売ペース、予測販売数を照合すると、欠品リスクは一部SKUに集中しています。売れ筋商品の欠品は機会損失だけでなく、関連商品の購入率にも影響しやすいため、優先度の高いSKUから補充判断を行うのがよさそうです。次に見るなら、店舗別または倉庫別の在庫偏りを確認すると、移動対応で回避できる商品も見つけやすくなります。";
+        }
+
+        function getAnswerContext(title, question) {
+          if (question.includes("会員数")) return "まず見るべき数字としては十分な会員規模があります。次に判断したいのは、この母数のうち実際に配信やキャンペーンで動かせる人数です。メール許諾あり、直近利用あり、休眠除外の条件を重ねると、施策対象として使える人数はもう少し絞られます。";
+          if (question.includes("先月")) return "増加幅としては悪くありません。新規登録が退会を上回っているので、会員基盤は拡大傾向です。ただし増加率だけを見るより、新規登録者が翌月も利用しているかを合わせて見ると、獲得の質まで判断できます。";
+          if (question.includes("年代")) return "30代と40代が中心なので、日常利用や家族利用に寄せた訴求と相性がよさそうです。20代向けに広げるなら、価格や手軽さを前面に出すより、利用シーンを具体的に見せるほうが反応を取りやすいと思います。";
+          if (question.includes("休眠")) return "休眠会員は一定数いるので、全体配信に混ぜるよりも復帰用の別シナリオに分けたほうがよさそうです。いきなり購買訴求を出すより、直近の人気サービスや期限付きの軽いオファーから戻す設計が向いています。";
+          if (question.includes("配信対象")) return "この人数なら一斉配信の母数としては十分ですが、全員に同じ内容を送るより、反応が高い属性から優先して小さく試すほうが精度が上がります。まずはアクティブかつ許諾ありの層で件名や訴求を比較するのがよさそうです。";
+          if (question.includes("属性")) return "属性だけで見ると30〜40代女性が中心ですが、施策に使うなら年代と性別だけでは少し粗いです。利用頻度やエリアを重ねると、同じ30代女性でも反応しやすい層とそうでない層を分けられます。";
+          if (question.includes("女性")) return "女性ユーザーは30〜40代に厚みがあるので、生活導線に近い訴求が合いそうです。限定感よりも、便利さ、家族で使いやすいこと、日常の予定に組み込みやすいことを前に出すと反応が取りやすいと思います。";
+          if (question.includes("男性")) return "男性は40代以上の比率が高めなので、実用性や効率の訴求が合いそうです。細かい世界観づくりより、何が得で、どれくらい便利で、いつ使うとよいかを明確にしたほうがクリックにつながりやすいです。";
+          if (question.includes("エリア")) return "中心エリアは母数と反応率の両方が強いので、まず施策を試す優先度が高いです。郊外エリアは利用目的が違う可能性があるため、中心エリアと同じ訴求を横展開するより、休日利用や家族利用に寄せて分けたほうがよさそうです。";
+          if (question.includes("セグメント")) return "このセグメントは母数があり、反応も安定しているので初回テスト対象として使いやすいです。いきなり全体展開するより、この層で訴求パターンを2〜3種類試して、勝ち筋を見てから広げるのがよいと思います。";
+          if (question.includes("配信結果")) return "今回の配信は全体としては前向きな結果です。開封率が高めなので件名や配信タイミングは一定効いていますが、クリック率との差を見ると、本文内の導線やオファー内容にはまだ改善余地があります。";
+          if (question.includes("前回")) return "前回より伸びているので、少なくとも今回の件名、配信時間、対象者のどれかは改善に効いています。次はどの要素が効いたのかを切り分けるため、同じ対象者で件名差、同じ件名で時間差を見ると判断しやすいです。";
+          if (question.includes("クリック")) return "クリックが集中しているリンクは、ユーザーの関心が最も強く出ている場所です。次回はその内容を本文の上部に置く、件名に近い言葉を入れる、関連CTAを増やすといった改善が考えられます。";
+          if (question.includes("反応")) return "反応が高い層は次回の優先配信対象として使えます。一方で平均を下回る層に同じ内容を送り続けても伸びにくいので、訴求を変えるか、配信頻度を落として別の切り口を試すのがよさそうです。";
+          if (question.includes("改善")) return "改善するなら、まず件名より本文冒頭とCTAの整合性を見たいです。開封後の行動が伸びれば、同じ配信母数でも成果が上がります。期限や具体的なメリットをCTA周辺に置くと改善しやすいと思います。";
+          if (question.includes("乗車駅") || question.includes("上位駅")) return "上位駅は利用者数が多いだけでなく、定期的に接点を作りやすい場所です。主要駅Aは高頻度利用者が多いので、短期キャンペーンよりも継続利用のメリットを出すほうが合いそうです。";
+          if (question.includes("平日")) return "平日と休日で強い駅が変わるなら、同じ配信内容を全駅に出すより、平日は通勤・時短、休日はおでかけ・家族利用のように出し分けたほうが自然です。";
+          if (question.includes("メール配信") || question.includes("時間")) return "木曜19時台が強いので、全体配信の第一候補にしてよさそうです。ただし配信対象が40代以上中心なら昼の反応も見逃せません。対象者ごとに時間を出し分けると、さらに改善できそうです。";
+          if (question.includes("ポイント")) return "ポイント残高が高い層は、放置すると休眠化や失効前の不満につながりやすいです。期限や使い道をわかりやすく提示して、少額でも使ってもらう導線を作るのがよさそうです。";
+          if (question.includes("決済")) return "決済利用者はサービスへの関与が高い層なので、追加施策の反応も期待できます。非利用者との差分を見ると、初回決済を促す対象は直近ログインありの未利用者から始めるのがよさそうです。";
+          if (question.includes("タグ")) return "タグは人数だけで選ぶと広すぎることがあります。反応率と重複を合わせて見ると、配信対象として使いやすいタグが見えてきます。旅行関心と高頻度利用のような掛け合わせは優先度が高いです。";
+          if (question.includes("旅行")) return "旅行サービスに反応した人は、週末利用や40代以上に寄っているので、日帰り・週末・手軽さを軸にした訴求が合いそうです。宿泊の大きな提案より、近場で使える具体的なプランのほうが反応を取りやすいと思います。";
+          return "この結果なら、まず結論の数字を押さえたうえで、次に対象者を分けて見るのがよさそうです。全体平均だけでは判断しづらいので、反応が高い層を起点に施策化するのが自然です。";
+        }
+
+        function expandAnswer(question, answer, title) {
+          return `${answer}<br><br>${getAnswerContext(title, question)}`;
+        }
+
+        function updateSelectedDatabase(name) {
+          selectedDatabaseName = name;
+          const selectedChip = databaseButton?.parentElement?.querySelector("span");
+          if (selectedChip) selectedChip.textContent = name;
+          const removeButton = databaseButton?.parentElement?.querySelector('button[aria-label^="Remove"]');
+          if (removeButton) removeButton.setAttribute("aria-label", `${name}を解除`);
+        }
+
+        function closeDatabaseModal() {
+          document.querySelector("[data-database-modal]")?.remove();
+        }
+
+        function openDatabaseModal() {
+          closeDatabaseModal();
+          const overlay = document.createElement("div");
+          overlay.setAttribute("data-database-modal", "true");
+          overlay.style.position = "fixed";
+          overlay.style.inset = "0";
+          overlay.style.zIndex = "9999";
+          overlay.style.background = "rgba(15, 23, 42, 0.46)";
+          overlay.style.backdropFilter = "blur(3px)";
+          overlay.style.display = "flex";
+          overlay.style.alignItems = "center";
+          overlay.style.justifyContent = "center";
+          overlay.style.padding = "24px";
+
+          const modal = document.createElement("div");
+          modal.style.width = "min(760px, 92vw)";
+          modal.style.maxHeight = "86vh";
+          modal.style.overflow = "hidden";
+          modal.style.background = "rgb(255, 255, 255)";
+          modal.style.borderRadius = "12px";
+          modal.style.boxShadow = "rgba(15, 23, 42, 0.18) 0px 24px 80px";
+          modal.style.border = "1px solid rgba(226, 232, 240, 0.9)";
+          modal.style.display = "flex";
+          modal.style.flexDirection = "column";
+
+          modal.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 10px;">
+              <h2 style="margin: 0; font-size: 14px; font-weight: 700; color: rgb(15, 23, 42);">データベースを選択</h2>
+              <button type="button" data-close-database-modal style="border: 0; background: transparent; color: rgb(148, 163, 184); cursor: pointer; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">×</button>
+            </div>
+            <div style="padding: 0 16px 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+              ${databaseOptions.map((option) => {
+                const isSelected = option.name === selectedDatabaseName;
+                return `
+                  <button type="button" data-database-option="${escapeHtml(option.name)}" style="width: 100%; display: grid; grid-template-columns: 34px 1fr 22px; gap: 12px; align-items: center; text-align: left; padding: 12px; border-radius: 8px; border: 1px solid ${isSelected ? "rgba(99, 102, 241, 0.55)" : "rgb(226, 232, 240)"}; background: ${isSelected ? "rgba(99, 102, 241, 0.06)" : "rgb(255, 255, 255)"}; cursor: pointer;">
+                    <span style="width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: ${isSelected ? "rgb(99, 102, 241)" : "rgb(241, 245, 249)"}; color: ${isSelected ? "rgb(255, 255, 255)" : "rgb(100, 116, 139)"};">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path></svg>
+                    </span>
+                    <span style="min-width: 0;">
+                      <span style="display: block; color: rgb(15, 23, 42); font-size: 13px; font-weight: 700; margin-bottom: 4px;">${escapeHtml(option.name)}</span>
+                      <span style="display: block; color: rgb(100, 116, 139); font-size: 10px; line-height: 1.45;">${escapeHtml(option.description)}</span>
+                    </span>
+                    <span style="display: flex; align-items: center; justify-content: center; color: rgb(99, 102, 241);">
+                      ${isSelected ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="m9.2 12.4 1.7 1.7 3.9-4" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>` : ""}
+                    </span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div style="padding: 0 16px 16px;">
+              <button type="button" data-done-database-modal style="width: 100%; height: 34px; border: 0; border-radius: 6px; background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-size: 13px; font-weight: 700; cursor: pointer;">完了</button>
+            </div>
+          `;
+
+          overlay.appendChild(modal);
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) closeDatabaseModal();
+            const optionButton = event.target.closest("[data-database-option]");
+            if (optionButton) {
+              updateSelectedDatabase(optionButton.dataset.databaseOption);
+              openDatabaseModal();
+            }
+            if (event.target.closest("[data-close-database-modal]") || event.target.closest("[data-done-database-modal]")) {
+              closeDatabaseModal();
+            }
+          });
+        }
+
+        function renderPresetChoices() {
+          menuItems.forEach((item, itemIndex) => {
+            const isActive = itemIndex === 0;
+            const label = item.querySelector("span");
+            item.style.background = isActive ? "rgba(99, 102, 241, 0.1)" : "transparent";
+            if (label) {
+              label.style.color = isActive ? "rgb(99, 102, 241)" : "rgb(51, 65, 85)";
+              label.style.fontWeight = isActive ? "600" : "500";
+            }
+          });
+          if (chatThread) {
+            chatThread.innerHTML = presetChoices();
+          }
+          renderWorkflow("日次チェック項目", "次に確認する分析項目を選ぶ");
+        }
+
+        function renderPresetConversation(question) {
+          if (chatThread) {
+            chatThread.innerHTML = `${userMessage(question)}${assistantMessage(getPresetReply(question))}${assistantMessage("※ 数値はデモ用のダミーデータです。実データとは異なります。")}${suggestedNextSteps(presetQuestions.filter((preset) => preset !== question).slice(0, 4))}`;
+          }
+          renderWorkflow("日次チェック項目", question);
+        }
+
+        function renderSample(index, activeMenuIndex = index) {
+          const sample = samples[index];
+          if (!sample) return;
+
+          menuItems.forEach((item, itemIndex) => {
+            const isActive = itemIndex === activeMenuIndex;
+            const label = item.querySelector("span");
+            item.style.background = isActive ? "rgba(99, 102, 241, 0.1)" : "transparent";
+            if (label) {
+              label.style.color = isActive ? "rgb(99, 102, 241)" : "rgb(51, 65, 85)";
+              label.style.fontWeight = isActive ? "600" : "500";
+            }
+          });
+
+          if (chatThread) {
+            chatThread.innerHTML = `${sample.turns.map(([question, answer]) => `${userMessage(question)}${assistantMessage(expandAnswer(question, answer, sample.title))}`).join("")}${assistantMessage("※ 数値はデモ用のダミーデータです。実データとは異なります。")}${suggestedNextSteps(sample.suggestions)}`;
+          }
+          renderWorkflow(sample.title, sample.turns[0]?.[0]);
+        }
+
+        menuItems.forEach((item, index) => {
+          const labelText = sidebarLabels[index];
+          if (!labelText) {
+            item.style.display = "none";
+            return;
+          }
+          const label = item.querySelector("span");
+          const deleteButton = item.querySelector("button");
+          if (label) label.textContent = labelText;
+          if (deleteButton) deleteButton.style.display = "flex";
+          item.addEventListener("click", () => {
+            renderSample(index);
+          });
+        });
+
+        if (newChatButton) {
+          newChatButton.addEventListener("click", renderPresetChoices);
+        }
+        if (databaseButton) {
+          databaseButton.addEventListener("click", openDatabaseModal);
+          updateSelectedDatabase(selectedDatabaseName);
+        }
+        if (chatThread) {
+          chatThread.addEventListener("click", (event) => {
+            const presetButton = event.target.closest("[data-preset-question]");
+            if (!presetButton) return;
+            renderPresetConversation(presetButton.dataset.presetQuestion);
+          });
+        }
+
+        setupLeftNav();
+        renderPresetChoices();
+      })();
+    </script>
+    <script src="/config.js"></script>
+  
+
+
+</body></html>
